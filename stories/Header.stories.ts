@@ -2,14 +2,15 @@ import { moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 import type { Story, Meta } from '@storybook/angular';
 
-import { HeaderComponent } from '../projects/design-system/src/lib/components/header/header.component';
+import { HeaderComponent } from 'projects/design-system/src/lib/components/header/header.component';
+import { HeaderModule } from 'projects/design-system/src/lib/components/header/header.module';
 
 export default {
-  title: 'Header',
+  title: 'HeaderComponent',
   component: HeaderComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule],
+      imports: [HeaderModule, CommonModule],
     }),
   ],
   parameters: {
@@ -18,13 +19,14 @@ export default {
   },
 } as Meta;
 
-const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
-  props: args,
+const Template: Story<HeaderComponent> = () => ({
+  component: HeaderComponent,
+  template: `<eshop-header></eshop-header>`,
 });
 
 export const Unauthenticated = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
-Unauthenticated.args = {};
 
 export const Authenticated = Template.bind({});
-Authenticated.args = {};
+Authenticated.args = {
+
+}

@@ -8,6 +8,96 @@
     "directives": [],
     "components": [
         {
+            "name": "BrandingComponent",
+            "id": "component-BrandingComponent-0773ef8e0be9e065ed4d2aaa543b71db99a5a72f4551987ce8e8f40dff10e8318ac9a77d47733f82d5ee22324b29819d6753d18d814f69d9d7584978d328e640",
+            "file": "projects/design-system/src/lib/components/branding/branding.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eshop-branding",
+            "styleUrls": [
+                "./branding.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./branding.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "_vector",
+                    "defaultValue": "BrandingVectors.default",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "any",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "svgRegistry",
+                    "defaultValue": "new Map<BrandingVectors, any>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'\n\nimport { BrandingVectors } from './branding-vectors.enum'\n\n\n@Component({\n  selector: 'eshop-branding',\n  templateUrl: './branding.component.html',\n  styleUrls: ['./branding.component.css'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class BrandingComponent implements OnInit {\n  private svgRegistry = new Map<BrandingVectors, any>()\n\n  @Input() _vector = BrandingVectors.default\n  get vector () {\n    return this.svgRegistry.get(this._vector)\n  }\n\n  ngOnInit(): void {\n    this.svgRegistry.set(BrandingVectors.default, '/assets/branding/default.svg')\n    this.svgRegistry.set(BrandingVectors.defaultMonochrome, '/assets/branding/default-monochrome.svg')\n    this.svgRegistry.set(BrandingVectors.defaultMonochromeBlack, '/assets/branding/default-monochrome-black.svg')\n    this.svgRegistry.set(BrandingVectors.defaultMonochromeWhite, '/assets/branding/default-monochrome-white.svg')\n    this.svgRegistry.set(BrandingVectors.isolatedLayout, '/assets/branding/isolated-layout.svg')\n    this.svgRegistry.set(BrandingVectors.isolatedMonochromeBlack, '/assets/branding/isolated-monochrome-black.svg')\n    this.svgRegistry.set(BrandingVectors.isolatedMonochromeWhite, '/assets/branding/isolated-monochrome-white.svg')\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./branding.component.css"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "OnInit"
+            ],
+            "accessors": {
+                "vector": {
+                    "name": "vector",
+                    "getSignature": {
+                        "name": "vector",
+                        "type": "",
+                        "returnType": "",
+                        "line": 16
+                    }
+                }
+            },
+            "templateData": "<img [src]=\"vector\" />"
+        },
+        {
             "name": "ButtonComponent",
             "id": "component-ButtonComponent-4ef205c97a334c309aa4001c8ab4a6d9571dcae18d0e85aaf0d367467ab5d3a9f13ab3573726f1fcb409bc9b49894dadfb80b1bbe1b6ba7041455ad9d4922004",
             "file": "projects/design-system/src/lib/components/button/button.component.ts",
@@ -133,20 +223,158 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-e733cdcacbe49cdb6743cab08071a1652e312eea8fce173c82c03ada6cae66ecee11a47c6dbe77c9d874429e3d82d91c911899f59fcc996296c3f08448d59125",
+            "id": "component-HeaderComponent-d49a89807e4261cfc5e8603aee859476e1e1ee2a469c323ea5d77914a0e9dc18cccf0650ba43abafb8c4e007b84ac0dc634c70f77a3d763d5581250ef057f6c5",
             "file": "projects/design-system/src/lib/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "lib-header",
+            "selector": "eshop-header",
             "styleUrls": [
                 "./header.component.css"
             ],
             "styles": [],
             "templateUrl": [
                 "./header.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "leadingTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "TemplateRef<any>",
+                    "decorators": []
+                },
+                {
+                    "name": "medialTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "TemplateRef<any>",
+                    "decorators": []
+                },
+                {
+                    "name": "trailingTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "TemplateRef<any>",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "defaultLeadingTemplateRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<HTMLElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'defaultLeadingTemplate'"
+                        }
+                    ]
+                },
+                {
+                    "name": "defaultMedialTemplateRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<HTMLElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'defaultMedialTemplate'"
+                        }
+                    ]
+                },
+                {
+                    "name": "defaultTrailingTemplateRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<HTMLElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'defaultTrailingTemplate'"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "configureTemplatesInitialState",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, AfterViewInit, TemplateRef, ViewChild } from '@angular/core';\n\n@Component({\n  selector: 'eshop-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.css']\n})\nexport class HeaderComponent implements AfterViewInit {\n  @Input() leadingTemplate!: TemplateRef<any>;\n  @Input() medialTemplate!: TemplateRef<any>;\n  @Input() trailingTemplate!: TemplateRef<any>;\n\n  @ViewChild('defaultLeadingTemplate') defaultLeadingTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultMedialTemplate') defaultMedialTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>;\n\n  ngAfterViewInit(): void {\n    this.configureTemplatesInitialState()\n  }\n\n  private configureTemplatesInitialState(): void {\n    if (!this.leadingTemplate) {\n      this.leadingTemplate = this.defaultLeadingTemplateRef;\n    }\n    if (!this.medialTemplate) {\n      this.medialTemplate = this.defaultMedialTemplateRef;\n    }\n    if (!this.trailingTemplate) {\n      this.trailingTemplate = this.defaultTrailingTemplateRef;\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./header.component.css"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "AfterViewInit"
+            ],
+            "templateData": "<header>\n  <ng-container *ngTemplateOutlet=\"leadingTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"medialTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"trailingTemplate\"></ng-container>\n</header>\n\n<ng-template #defaultLeadingTemplate>\n  <eshop-branding></eshop-branding>\n</ng-template>\n\n<ng-template #defaultMedialTemplate>\n  <eshop-page-detail detail=title></eshop-page-detail>\n</ng-template>\n\n<ng-template #defaultTrailingTemplate>\n  <eshop-main-menu detail=title></eshop-main-menu>\n</ng-template>"
+        },
+        {
+            "name": "MainMenuComponent",
+            "id": "component-MainMenuComponent-5785b1ba5bb5e251a59ec18f0f273402a45d5285658f12971aeb8380494a72ada8a0ae1c0edb7aecbdc02c33f291f4f60e7458033e3eb913dd9cb93114fc0836",
+            "file": "projects/design-system/src/lib/components/main-menu/main-menu.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eshop-main-menu",
+            "styleUrls": [
+                "./main-menu.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./main-menu.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [],
@@ -171,12 +399,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.css']\n})\nexport class HeaderComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'eshop-main-menu',\n  templateUrl: './main-menu.component.html',\n  styleUrls: ['./main-menu.component.css']\n})\nexport class MainMenuComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "",
-                    "styleUrl": "./header.component.css"
+                    "styleUrl": "./main-menu.component.css"
                 }
             ],
             "stylesData": "",
@@ -191,10 +419,116 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>header works!</p>\n"
+            "templateData": "<p>main-menu works!</p>\n"
+        },
+        {
+            "name": "PageDetailComponent",
+            "id": "component-PageDetailComponent-8e20009bebd12833556cc3d45bb801c0aa28e0ccd003d680a3647de8c1367541cedd535c9c3569736ca11b88cb5020366fea95d7c524934f9f12d292c1e8c1c1",
+            "file": "projects/design-system/src/lib/components/page-detail/page-detail.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eshop-page-detail",
+            "styleUrls": [
+                "./page-detail.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./page-detail.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'eshop-page-detail',\n  templateUrl: './page-detail.component.html',\n  styleUrls: ['./page-detail.component.css']\n})\nexport class PageDetailComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./page-detail.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>page-detail works!</p>\n"
         }
     ],
     "modules": [
+        {
+            "name": "BrandingModule",
+            "id": "module-BrandingModule-4726b9562099dab1b3cb55449cdf161e0c52389e4060ecca8f6e7f5b1c4740c56194b5060186cdd104490219022f2a0c27250e98d383003b9507db6bcbc0fe2d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/branding/branding.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BrandingComponent } from './branding.component';\n\n\n@NgModule({\n  declarations: [\n    BrandingComponent\n  ],\n  exports: [\n    BrandingComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class BrandingModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BrandingComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BrandingComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
         {
             "name": "DesignSystemModule",
             "id": "module-DesignSystemModule-249cccfeb91a857d5ce0eefdf87cb3ef4b7833a400bd7f45e7cd1883501234a69dde06ef468f017d50aa00c858035dd009e0db27f0c904808a974ea3c28893e5",
@@ -245,13 +579,13 @@
         },
         {
             "name": "HeaderModule",
-            "id": "module-HeaderModule-be9cd62b879ac433bbe14e1337b1ab5d76a8be03ec433d29f5532de1b098ba0fc0d60fcc4011ee8fff6a6bc0d4ca9cde8ab45b02912fcce879076a3172325e3f",
+            "id": "module-HeaderModule-4c7996320fa3dbde28702faca3df7fb69291b6d3818ecffeb3617a272733bf7a947a5f7d541087efe2ad437ff92562d7c91cad4814c44fbd9f650d4f7b8c778f",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/design-system/src/lib/components/header/header.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header.component';\n\n\n\n@NgModule({\n  declarations: [HeaderComponent],\n  exports: [HeaderComponent],\n  imports: [\n    CommonModule\n  ]\n})\nexport class HeaderModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header.component';\nimport { BrandingModule } from '../branding/branding.module';\nimport { MainMenuModule } from '../main-menu/main-menu.module';\nimport { PageDetailModule } from '../page-detail/page-detail.module';\n\n\n\n@NgModule({\n  declarations: [HeaderComponent],\n  exports: [HeaderComponent],\n  imports: [\n    CommonModule,\n    BrandingModule,\n    MainMenuModule,\n    PageDetailModule\n  ]\n})\nexport class HeaderModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -267,7 +601,17 @@
                 },
                 {
                     "type": "imports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "BrandingModule"
+                        },
+                        {
+                            "name": "MainMenuModule"
+                        },
+                        {
+                            "name": "PageDetailModule"
+                        }
+                    ]
                 },
                 {
                     "type": "exports",
@@ -286,10 +630,108 @@
                     "elements": []
                 }
             ]
+        },
+        {
+            "name": "MainMenuModule",
+            "id": "module-MainMenuModule-41801ee647bd6d4adecd4031a6f56290147437a6bff16c373095dc975c2ff02877b84b0f2bdf9e654350ca7a6a9277d5b8f5a3ed8ccd808c0f73c9e92d6a75d5",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/main-menu/main-menu.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MainMenuComponent } from './main-menu.component';\n\n\n\n@NgModule({\n  declarations: [\n    MainMenuComponent\n  ],\n  exports: [\n    MainMenuComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class MainMenuModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MainMenuComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MainMenuComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "PageDetailModule",
+            "id": "module-PageDetailModule-c17480d48da72cbc00d39ed1054aae11e9e89872ed4bd0daae182eba2ceb25b501c54cf478a157ee03fa4a2f033cb57150bff24955d7aa11c739cb34871ec595",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/page-detail/page-detail.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { PageDetailComponent } from './page-detail.component';\n\n\n\n@NgModule({\n  declarations: [\n    PageDetailComponent\n  ],\n  exports: [\n    PageDetailComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class PageDetailModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "PageDetailComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "PageDetailComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
         }
     ],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "Authenticated",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
             {
                 "name": "context",
                 "ctype": "miscellaneous",
@@ -367,13 +809,114 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<HeaderComponent>",
-                "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
+                "defaultValue": "() => ({\n  component: HeaderComponent,\n  template: `<eshop-header></eshop-header>`,\n})"
+            },
+            {
+                "name": "Unauthenticated",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             }
         ],
         "functions": [],
         "typealiases": [],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "BrandingVectors",
+                "childs": [
+                    {
+                        "name": "unknown",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "default",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "default"
+                    },
+                    {
+                        "name": "defaultMonochrome",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "default-monochrome"
+                    },
+                    {
+                        "name": "defaultMonochromeBlack",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "default-monochrome-black"
+                    },
+                    {
+                        "name": "defaultMonochromeWhite",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "default-monochrome-white"
+                    },
+                    {
+                        "name": "isolatedLayout",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "isolated-layout"
+                    },
+                    {
+                        "name": "isolatedMonochromeBlack",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "isolated-monochrome-black"
+                    },
+                    {
+                        "name": "isolatedMonochromeWhite",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "isolated-monochrome-white"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/design-system/src/lib/components/branding/branding-vectors.enum.ts"
+            }
+        ],
         "groupedVariables": {
+            "stories/Header.stories.ts": [
+                {
+                    "name": "Authenticated",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<HeaderComponent>",
+                    "defaultValue": "() => ({\n  component: HeaderComponent,\n  template: `<eshop-header></eshop-header>`,\n})"
+                },
+                {
+                    "name": "Unauthenticated",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
             "projects/design-system/src/test.ts": [
                 {
                     "name": "context",
@@ -446,29 +989,87 @@
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
                 }
-            ],
-            "stories/Header.stories.ts": [
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<HeaderComponent>",
-                    "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
-                }
             ]
         },
         "groupedFunctions": {},
-        "groupedEnumerations": {},
+        "groupedEnumerations": {
+            "projects/design-system/src/lib/components/branding/branding-vectors.enum.ts": [
+                {
+                    "name": "BrandingVectors",
+                    "childs": [
+                        {
+                            "name": "unknown",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "default",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "default"
+                        },
+                        {
+                            "name": "defaultMonochrome",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "default-monochrome"
+                        },
+                        {
+                            "name": "defaultMonochromeBlack",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "default-monochrome-black"
+                        },
+                        {
+                            "name": "defaultMonochromeWhite",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "default-monochrome-white"
+                        },
+                        {
+                            "name": "isolatedLayout",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "isolated-layout"
+                        },
+                        {
+                            "name": "isolatedMonochromeBlack",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "isolated-monochrome-black"
+                        },
+                        {
+                            "name": "isolatedMonochromeWhite",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "isolated-monochrome-white"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/design-system/src/lib/components/branding/branding-vectors.enum.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {}
     },
     "routes": [],
     "coverage": {
-        "count": 8,
+        "count": 5,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/design-system/src/lib/components/branding/branding.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BrandingComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
             {
                 "filePath": "projects/design-system/src/lib/components/button/button.component.ts",
                 "type": "component",
@@ -483,6 +1084,24 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/main-menu/main-menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MainMenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/page-detail/page-detail.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PageDetailComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
                 "status": "low"
@@ -562,7 +1181,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Authenticated",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Unauthenticated",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

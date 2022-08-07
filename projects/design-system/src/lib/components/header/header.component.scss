@@ -1,0 +1,22 @@
+header {
+  background-color: purple;
+}
+header > .medial {
+  display: flex;
+  justify-content: center;
+  margin-top: 1ex;
+  color: white
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    display: flex;
+    flex-direction: row;
+  }
+  header > .medial {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding-left: 1em;
+  }
+}

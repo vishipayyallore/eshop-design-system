@@ -11,5 +11,11 @@ module.exports = {
   "framework": "@storybook/angular",
   "core": {
     "builder": "@storybook/builder-webpack5"
-  }
+  },
+  "staticDirs": [
+    {
+      "from": "../projects/design-system/src/assets", 
+      "to": "assets"
+    }
+  ]
 }
