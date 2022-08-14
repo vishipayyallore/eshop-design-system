@@ -1,0 +1,23 @@
+<header ngClass="gridClass">
+  <ng-container *ngTemplateOutlet="leadingTemplate"></ng-container>
+  <ng-container *ngTemplateOutlet="medialTemplate"></ng-container>
+  <ng-container *ngTemplateOutlet="trailingTemplate"></ng-container>
+</header>
+
+<ng-template #defaultLeadingTemplate>
+  <div class=leading>
+    <eshop-branding [vectors]="brandingVectors"></eshop-branding>
+  </div>
+</ng-template>
+
+<ng-template #defaultMedialTemplate>
+  <div class=medial>
+    <eshop-page-detail detail=title></eshop-page-detail>
+  </div>
+</ng-template>
+
+<ng-template #defaultTrailingTemplate>
+  <div class=trailing>
+    <eshop-main-menu></eshop-main-menu>
+  </div>
+</ng-template>

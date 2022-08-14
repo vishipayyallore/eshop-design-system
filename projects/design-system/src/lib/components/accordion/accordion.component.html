@@ -1,0 +1,19 @@
+<ul class= "eshop-accordion" *ngFor="let item of items$ | async">
+  <li class=item ngClass="{ expanded: item.isExpanded }">
+    <button class=surface *ngIf="isReactiveSurface" (click)="toggleItem(item)">
+      <ng-container *ngTemplateOutlet="itemContent"></ng-container>      
+    </button>
+    <ng-container *ngIf="!isReactiveSurface">
+      <ng-container *ngTemplateOutlet="itemContent"></ng-container>      
+    </ng-container>
+
+    <ng-template #itemContent>
+      <div class="item-content header" *ngIf="!item.isExpanded">
+        <ng-container *ngTemplateOutlet="item.collapsedTemplate"></ng-container>
+      </div>
+      <div class=item-content *ngIf="item.isExpanded">
+        <ng-container *ngTemplateOutlet="item.expandedTemplate"></ng-container>
+      </div>  
+    </ng-template>
+  </li>
+</ul>

@@ -1,0 +1,1947 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "AccordionItem",
+            "id": "interface-AccordionItem-e1b05bdaedd4f2908ceb2d1b0104237e815b057c1d98593225ac472e797bd5f666f4b3e5cc490bc10764e74a88c2a65cf296a0d67c620c943ddbb6796478e57b",
+            "file": "projects/design-system/src/lib/components/accordion/accordion-item.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { TemplateRef } from \"@angular/core\"\n\n\nexport interface AccordionItem {\n  collapsedTemplate: TemplateRef<any>\n  expandedTemplate?: TemplateRef<any>\n  isExpanded?: boolean\n}\n",
+            "properties": [
+                {
+                    "name": "collapsedTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<any>",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "expandedTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<any>",
+                    "optional": true,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "isExpanded",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "BrandingType",
+            "id": "interface-BrandingType-a879239703ae8cc4f2bd1bed2f7988cd20febfa29246e235315afe55096bc0be092506fcb8200019b296b99d82a83de3c2501cccc23aeca49bb9e9befb3f6562",
+            "file": "projects/design-system/src/lib/components/branding/branding.type.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { BrandingVectors } from \"./branding-vectors.enum\";\n\n\nexport interface BrandingType {\n  mobile: BrandingVectors,\n  tablet: BrandingVectors,\n  desktop: BrandingVectors,\n}\n",
+            "properties": [
+                {
+                    "name": "desktop",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BrandingVectors",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "mobile",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BrandingVectors",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "tablet",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BrandingVectors",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "MainMenuService",
+            "id": "injectable-MainMenuService-87fec20c32b470d6ed6e95e2c71765a73e14cefa4415f43bb6ae261f4309a2032b344743e3fdfcd9670f44644dc30144aada76d0ccd890954017c31f27d65b06",
+            "file": "projects/design-system/src/lib/components/main-menu/main-menu.service.ts",
+            "properties": [
+                {
+                    "name": "items",
+                    "defaultValue": "new BehaviorSubject<AccordionItem[]>([])",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "modifierKind": [
+                        144
+                    ]
+                },
+                {
+                    "name": "items$",
+                    "defaultValue": "this.items.asObservable()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        144
+                    ]
+                }
+            ],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core'\nimport { BehaviorSubject } from 'rxjs'\n\nimport { AccordionItem } from '../accordion/accordion-item.interface'\n\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class MainMenuService {\n  readonly items = new BehaviorSubject<AccordionItem[]>([])\n  readonly items$ = this.items.asObservable()\n}\n",
+            "type": "injectable"
+        },
+        {
+            "name": "PageDetailService",
+            "id": "injectable-PageDetailService-90636fcb424518e47742e5d23c6aa15acc06f669c419dac75a90d6a0b7f4683fed60849fe45018cc50343a6cb323a435ab44f1e851521ea308e1e5a5b4aed69e",
+            "file": "projects/design-system/src/lib/components/page-detail/page-detail.service.ts",
+            "properties": [
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 8
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getCopy",
+                    "args": [
+                        {
+                            "name": "detail",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "detail",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { DEFAULT_COPY, ESHOP_SLOGAN } from './constants';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class PageDetailService {\n  title?: string\n\n  get copyTitle(){\n    return this.title ?? ESHOP_SLOGAN\n  }\n\n  getCopy(detail: string){\n    if(detail === 'title')\n      return this.copyTitle\n    return DEFAULT_COPY\n  }\n}\n",
+            "accessors": {
+                "copyTitle": {
+                    "name": "copyTitle",
+                    "getSignature": {
+                        "name": "copyTitle",
+                        "type": "",
+                        "returnType": "",
+                        "line": 10
+                    }
+                }
+            },
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AccordionComponent",
+            "id": "component-AccordionComponent-4ad552c3e1fa24d99e1eca2b4916bc244da13e7897abc9b26ee62194e990198f7bd7c7df3ee07c6c42458e795007ba7ad09af3b9b4b40aa93fb88761280ee482",
+            "file": "projects/design-system/src/lib/components/accordion/accordion.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eshop-accordion",
+            "styleUrls": [
+                "./accordion.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./accordion.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "isReactiveSurface",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "items$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "Observable<AccordionItem[]>",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "toggleItem",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "AccordionItem",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "AccordionItem",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { Observable } from 'rxjs';\n\nimport { AccordionItem } from './accordion-item.interface'\n\n\n@Component({\n  selector: 'eshop-accordion',\n  templateUrl: './accordion.component.html',\n  styleUrls: ['./accordion.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class AccordionComponent {\n  @Input() isReactiveSurface = true\n  @Input() items$!:  Observable<AccordionItem[]>\n\n  toggleItem(item: AccordionItem): void {\n    item.isExpanded = !item.isExpanded\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".eshop-accordion {\n  > .item > button.surface {\n    padding: 0;\n    border: none;\n    background: transparent;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    width: 100%;\n    height: 100%;\n    transition: all 0.2s ease-in-out;\n    &:hover {\n      background-color: rgba(255, 255, 255, 0.1);\n    }\n  }\n}",
+                    "styleUrl": "./accordion.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<ul class= \"eshop-accordion\" *ngFor=\"let item of items$ | async\">\n  <li class=item ngClass=\"{ expanded: item.isExpanded }\">\n    <button class=surface *ngIf=\"isReactiveSurface\" (click)=\"toggleItem(item)\">\n      <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>      \n    </button>\n    <ng-container *ngIf=\"!isReactiveSurface\">\n      <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>      \n    </ng-container>\n\n    <ng-template #itemContent>\n      <div class=\"item-content header\" *ngIf=\"!item.isExpanded\">\n        <ng-container *ngTemplateOutlet=\"item.collapsedTemplate\"></ng-container>\n      </div>\n      <div class=item-content *ngIf=\"item.isExpanded\">\n        <ng-container *ngTemplateOutlet=\"item.expandedTemplate\"></ng-container>\n      </div>  \n    </ng-template>\n  </li>\n</ul>\n"
+        },
+        {
+            "name": "BrandingComponent",
+            "id": "component-BrandingComponent-bdc6ed4b0ac1cdba0dfa68fe24c361b67ec091b30a5c27063f3354570e46facef00889094e8a4583d01629ce6056b66fbc49b3d0cdf286e6e45ff8d5ec8e31a0",
+            "file": "projects/design-system/src/lib/components/branding/branding.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eshop-branding",
+            "styleUrls": [
+                "./branding.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./branding.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "vectors",
+                    "defaultValue": "BrandingComponent.DEFAULT_BRANDING_VECTORS",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "BrandingType",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "DEFAULT_BRANDING_VECTORS",
+                    "defaultValue": "defaultBrandingVectors",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "modifierKind": [
+                        124,
+                        144
+                    ]
+                },
+                {
+                    "name": "mediaSize",
+                    "defaultValue": "'mobile'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "svgRegistry",
+                    "defaultValue": "new Map<BrandingVectors, any>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onWindowResize",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'window:resize', ['$event']"
+                        }
+                    ],
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "window:resize",
+                    "args": [],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, HostListener, Input, OnInit } from '@angular/core'\n\nimport { BrandingVectors } from './branding-vectors.enum'\nimport { BrandingType } from './branding.type'\nimport { defaultBrandingVectors } from './constants'\n\n\n@Component({\n  selector: 'eshop-branding',\n  templateUrl: './branding.component.html',\n  styleUrls: ['./branding.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class BrandingComponent implements OnInit {\n  static readonly DEFAULT_BRANDING_VECTORS = defaultBrandingVectors\n\n  private svgRegistry = new Map<BrandingVectors, any>()\n\n  mediaSize: keyof BrandingType = 'mobile'\n\n  @Input() vectors: BrandingType = \n    BrandingComponent.DEFAULT_BRANDING_VECTORS\n  get vector () {\n    return this.svgRegistry.get(this.vectors[this.mediaSize])\n  }\n\n  @HostListener('window:resize', ['$event'])\n  private onWindowResize() {\n    this.mediaSize = window.innerWidth < 768 \n      ? 'mobile' \n      : window.innerWidth > 1024 \n        ? 'desktop' \n        : 'tablet'\n  }\n\n  ngOnInit(): void {\n    this.svgRegistry.set(BrandingVectors.default, '/assets/branding/default.svg')\n    this.svgRegistry.set(BrandingVectors.defaultMonochrome, '/assets/branding/default-monochrome.svg')\n    this.svgRegistry.set(BrandingVectors.defaultMonochromeBlack, '/assets/branding/default-monochrome-black.svg')\n    this.svgRegistry.set(BrandingVectors.defaultMonochromeWhite, '/assets/branding/default-monochrome-white.svg')\n    this.svgRegistry.set(BrandingVectors.isolatedLayout, '/assets/branding/isolated-layout.svg')\n    this.svgRegistry.set(BrandingVectors.isolatedMonochromeBlack, '/assets/branding/isolated-monochrome-black.svg')\n    this.svgRegistry.set(BrandingVectors.isolatedMonochromeWhite, '/assets/branding/isolated-monochrome-white.svg')\n\n    this.onWindowResize()\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"../../styles/mixins\";\n\n.branding {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-top: 1pt;\n  padding-bottom: 1pt;\n  height: 1.5em;\n}\n\nimg {\n  flex: 1;\n  height: 100%;\n}\n\n@include media-tablet {\n  .branding {\n    height: 3em;\n    padding-top: 2pt;\n  }\n}\n\n@include media-desktop {\n  .branding {\n    align-items: flex-start;\n    height: 4cm;\n  }\n}\n",
+                    "styleUrl": "./branding.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "OnInit"
+            ],
+            "accessors": {
+                "vector": {
+                    "name": "vector",
+                    "getSignature": {
+                        "name": "vector",
+                        "type": "",
+                        "returnType": "",
+                        "line": 23
+                    }
+                }
+            },
+            "templateData": "<div class=branding>\n  <img [src]=\"vector\" />\n</div>"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-4ef205c97a334c309aa4001c8ab4a6d9571dcae18d0e85aaf0d367467ab5d3a9f13ab3573726f1fcb409bc9b49894dadfb80b1bbe1b6ba7041455ad9d4922004",
+            "file": "projects/design-system/src/lib/components/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-button",
+            "styleUrls": [
+                "./button.css"
+            ],
+            "styles": [],
+            "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhat background color to use\n",
+                    "description": "<p>What background color to use</p>\n",
+                    "line": 26,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "pos": 711,
+                            "end": 724,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 325,
+                            "tagName": {
+                                "pos": 712,
+                                "end": 720,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "\n\nButton contents\n\n",
+                    "description": "<p>Button contents</p>\n",
+                    "line": 40,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "primary",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nIs this the principal call to action on the page?\n",
+                    "description": "<p>Is this the principal call to action on the page?</p>\n",
+                    "line": 20,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nHow large should the button be?\n",
+                    "description": "<p>How large should the button be?</p>\n",
+                    "line": 32,
+                    "type": "\"small\" | \"medium\" | \"large\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional click handler\n",
+                    "description": "<p>Optional click handler</p>\n",
+                    "line": 46,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".storybook-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "styleUrl": "./button.css"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 48
+                    }
+                }
+            }
+        },
+        {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-9d65d478fdbdcc5e9dc35e5594437f5cbedfbd61161f695de288501d3e5e20391a3641931cf876714e023500c29ffe8f40ceae33a5905e16a62a827a3e07ec4e",
+            "file": "projects/design-system/src/lib/components/header/header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eshop-header",
+            "styleUrls": [
+                "./header.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./header.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "brandingVectors",
+                    "defaultValue": "defaultBrandingVectors",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "leadingTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "TemplateRef<any>",
+                    "decorators": []
+                },
+                {
+                    "name": "medialTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "TemplateRef<any>",
+                    "decorators": []
+                },
+                {
+                    "name": "trailingTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "TemplateRef<any>",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "defaultLeadingTemplateRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<HTMLElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'defaultLeadingTemplate'"
+                        }
+                    ]
+                },
+                {
+                    "name": "defaultMedialTemplateRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<HTMLElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'defaultMedialTemplate'"
+                        }
+                    ]
+                },
+                {
+                    "name": "defaultTrailingTemplateRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<HTMLElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'defaultTrailingTemplate'"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "configureTemplatesInitialState",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, AfterViewInit, TemplateRef, ViewChild } from '@angular/core';\nimport { defaultBrandingVectors } from '../branding/constants';\n\n@Component({\n  selector: 'eshop-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements AfterViewInit {\n  @Input() brandingVectors = defaultBrandingVectors\n\n  @Input() leadingTemplate!: TemplateRef<any>;\n  @Input() medialTemplate!: TemplateRef<any>;\n  @Input() trailingTemplate!: TemplateRef<any>;\n\n  @ViewChild('defaultLeadingTemplate') defaultLeadingTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultMedialTemplate') defaultMedialTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>;\n\n  ngAfterViewInit(): void {\n    this.configureTemplatesInitialState()\n  }\n\n  private configureTemplatesInitialState(): void {\n    if (!this.leadingTemplate) {\n      this.leadingTemplate = this.defaultLeadingTemplateRef;\n    }\n    if (!this.medialTemplate) {\n      this.medialTemplate = this.defaultMedialTemplateRef;\n    }\n    if (!this.trailingTemplate) {\n      this.trailingTemplate = this.defaultTrailingTemplateRef;\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"../../styles/mixins\";\n@import \"./layout\";\n\nheader {\n  @include media-mobile {\n    @include two-up-one-down;\n  }\n  background-color: purple;\n\n  &.horizontal {\n    @include horizontal;\n  } \n}\n\nheader > .medial {\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n  padding-bottom: 1pt;\n  padding-top: 1pt;\n  color: white\n}\n\n@include media-desktop {\n  header {\n    @include horizontal;\n  }\n  header > .medial {\n    display: flex;\n    align-items: center;\n    flex: 1;\n    padding-left: 1em;\n  }\n}\n",
+                    "styleUrl": "./header.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "AfterViewInit"
+            ],
+            "templateData": "<header ngClass=\"gridClass\">\n  <ng-container *ngTemplateOutlet=\"leadingTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"medialTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"trailingTemplate\"></ng-container>\n</header>\n\n<ng-template #defaultLeadingTemplate>\n  <div class=leading>\n    <eshop-branding [vectors]=\"brandingVectors\"></eshop-branding>\n  </div>\n</ng-template>\n\n<ng-template #defaultMedialTemplate>\n  <div class=medial>\n    <eshop-page-detail detail=title></eshop-page-detail>\n  </div>\n</ng-template>\n\n<ng-template #defaultTrailingTemplate>\n  <div class=trailing>\n    <eshop-main-menu></eshop-main-menu>\n  </div>\n</ng-template>"
+        },
+        {
+            "name": "MainMenuComponent",
+            "id": "component-MainMenuComponent-9b2bc80d1ad6ee8b5ac01daae4941709193c8198e1973fd1e52d8bfe00226dc08de0d2ac16f192715f96aa19df45aa7a647be3fef36edb9f6d4560942ea8d135",
+            "file": "projects/design-system/src/lib/components/main-menu/main-menu.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eshop-main-menu",
+            "styleUrls": [
+                "./main-menu.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./main-menu.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "isExpandable",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "items$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<AccordionItem[]>",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core'\nimport { Observable } from 'rxjs'\n\nimport { AccordionItem } from '../accordion/accordion-item.interface'\nimport { MainMenuService } from './main-menu.service'\n\n\n@Component({\n  selector: 'eshop-main-menu',\n  templateUrl: './main-menu.component.html',\n  styleUrls: ['./main-menu.component.css']\n})\nexport class MainMenuComponent implements OnInit {\n  @Input() isExpandable = false;\n  \n  items$!: Observable<AccordionItem[]>\n\n  constructor(private mainMenuService: MainMenuService) { }\n\n  ngOnInit(): void {\n    this.items$ = this.mainMenuService.items$\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./main-menu.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "mainMenuService",
+                        "type": "MainMenuService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 16,
+                "jsdoctags": [
+                    {
+                        "name": "mainMenuService",
+                        "type": "MainMenuService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<eshop-accordion [items$]=\"items$\" [isReactiveSurface]=\"isExpandable\"></eshop-accordion>"
+        },
+        {
+            "name": "MenuLoader",
+            "id": "component-MenuLoader-5275fbb004a580e9d9cc47e7266d5cffabd3997d4768cefa1bdf92693ac3fa3dfdcbcc46b362fccf5823bf5ebf75e33227ee110cce60f83c1c71e2ff704ae79a",
+            "file": "stories/menu-loader.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "menu-loader",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-template *ngFor=\"let content of contents\" #templates>\n  <span class=\"item content\">{{ content }}</span>\n</ng-template>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "items",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "any[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "contents",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 28
+                },
+                {
+                    "name": "templates",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "QueryList<TemplateRef<any>>",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "decorators": [
+                        {
+                            "name": "ViewChildren",
+                            "stringifiedArguments": "'templates'"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "preprocessItem",
+                    "args": [
+                        {
+                            "name": "_item",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "index",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "_item",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "index",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from \"@angular/common\"\nimport { Component, ElementRef, Input, QueryList, TemplateRef, ViewChildren } from \"@angular/core\"\nimport { AccordionItem } from \"projects/design-system/src/lib/components/accordion/accordion-item.interface\"\n\nimport { MainMenuService } from \"projects/design-system/src/lib/components/main-menu/main-menu.service\"\n\n\n@Component({\n  standalone: true,\n  imports: [ CommonModule ],\n  template: `\n  <ng-template *ngFor=\"let content of contents\" #templates>\n    <span class=\"item content\">{{ content }}</span>\n  </ng-template>`,\n  selector: 'menu-loader'\n})\nexport class MenuLoader { \n  @ViewChildren('templates') templates!: QueryList<TemplateRef<any>>\n\n  @Input() set items (items: any[]) {\n    this.contents = (items ?? []).map(String)\n    const self = this\n    setTimeout(function(){\n      self.mainMenuService.items\n        .next(self.contents.map(self.preprocessItem.bind(self)))\n    },20)\n  }\n  contents: string[] = []\n  constructor(private mainMenuService: MainMenuService, private elR: ElementRef) {}\n\n  private preprocessItem(_item: any, index: number) {\n    if (index > this.templates.length - 1) return {} as AccordionItem\n    const template = this.templates.find((_template: TemplateRef<any>, i) => index == i)!\n    return { collapsedTemplate: template }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "mainMenuService",
+                        "type": "MainMenuService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "elR",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 28,
+                "jsdoctags": [
+                    {
+                        "name": "mainMenuService",
+                        "type": "MainMenuService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "elR",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "accessors": {
+                "items": {
+                    "name": "items",
+                    "setSignature": {
+                        "name": "items",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "items",
+                                "type": "any[]",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 20,
+                        "jsdoctags": [
+                            {
+                                "name": "items",
+                                "type": "any[]",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "PageDetailComponent",
+            "id": "component-PageDetailComponent-4081baec0ce53bcdf65044ea8a82bd62e284dae7671b5de467360a999502499a43711df6f148f4242fd7d9420af8b4db8e95d05e8c012906076cadcb05582433",
+            "file": "projects/design-system/src/lib/components/page-detail/page-detail.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eshop-page-detail",
+            "styleUrls": [
+                "./page-detail.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./page-detail.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "detail",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "copy",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { PageDetailService } from './page-detail.service';\n\n@Component({\n  selector: 'eshop-page-detail',\n  templateUrl: './page-detail.component.html',\n  styleUrls: ['./page-detail.component.css']\n})\nexport class PageDetailComponent implements OnInit {\n  copy = ''\n\n  @Input() detail!: string\n\n  constructor(private pageDetailService: PageDetailService) { }\n\n  ngOnInit(): void {\n    this.copy = this.pageDetailService.getCopy(this.detail)\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./page-detail.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "pageDetailService",
+                        "type": "PageDetailService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 12,
+                "jsdoctags": [
+                    {
+                        "name": "pageDetailService",
+                        "type": "PageDetailService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<span>{{ copy }}</span>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AccordionModule",
+            "id": "module-AccordionModule-5444aba9e60c1125bb92382a8a8be6bf2d7831361990b8ea081e15fee51aafbab948bb41371be311b0099d73b49a67992500d8f9ed5de95d9bc958501034057f",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/accordion/accordion.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { AccordionComponent } from './accordion.component';\n\n\n\n@NgModule({\n  declarations: [\n    AccordionComponent\n  ],\n  exports: [\n    AccordionComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class AccordionModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AccordionComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "AccordionComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "BrandingModule",
+            "id": "module-BrandingModule-4726b9562099dab1b3cb55449cdf161e0c52389e4060ecca8f6e7f5b1c4740c56194b5060186cdd104490219022f2a0c27250e98d383003b9507db6bcbc0fe2d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/branding/branding.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BrandingComponent } from './branding.component';\n\n\n@NgModule({\n  declarations: [\n    BrandingComponent\n  ],\n  exports: [\n    BrandingComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class BrandingModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BrandingComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BrandingComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "DesignSystemModule",
+            "id": "module-DesignSystemModule-249cccfeb91a857d5ce0eefdf87cb3ef4b7833a400bd7f45e7cd1883501234a69dde06ef468f017d50aa00c858035dd009e0db27f0c904808a974ea3c28893e5",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/design-system.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from \"@angular/core\"\nimport ButtonComponent from \"./components/button/button.component\";\nimport { HeaderModule } from \"./components/header/header.module\";\n\n@NgModule({\n  declarations: [ButtonComponent],\n  exports: [ButtonComponent],\n  imports: [HeaderModule],\n})\nexport class DesignSystemModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "HeaderModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "HeaderModule",
+            "id": "module-HeaderModule-4c7996320fa3dbde28702faca3df7fb69291b6d3818ecffeb3617a272733bf7a947a5f7d541087efe2ad437ff92562d7c91cad4814c44fbd9f650d4f7b8c778f",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/header/header.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header.component';\nimport { BrandingModule } from '../branding/branding.module';\nimport { MainMenuModule } from '../main-menu/main-menu.module';\nimport { PageDetailModule } from '../page-detail/page-detail.module';\n\n\n\n@NgModule({\n  declarations: [HeaderComponent],\n  exports: [HeaderComponent],\n  imports: [\n    CommonModule,\n    BrandingModule,\n    MainMenuModule,\n    PageDetailModule\n  ]\n})\nexport class HeaderModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "HeaderComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "BrandingModule"
+                        },
+                        {
+                            "name": "MainMenuModule"
+                        },
+                        {
+                            "name": "PageDetailModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "HeaderComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "MainMenuModule",
+            "id": "module-MainMenuModule-e54a90bdf26dac246a09898ba11441d50e0001cc939fde19f3e9797f4edb2136b824452f07e2471e293a3b57563e66f24365014a896088fbc371dbbc9e54ee18",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/main-menu/main-menu.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MainMenuComponent } from './main-menu.component';\nimport { AccordionModule } from '../accordion/accordion.module';\n\n\n\n@NgModule({\n  declarations: [\n    MainMenuComponent\n  ],\n  exports: [\n    MainMenuComponent\n  ],\n  imports: [\n    CommonModule,\n    AccordionModule\n  ]\n})\nexport class MainMenuModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MainMenuComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AccordionModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MainMenuComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "PageDetailModule",
+            "id": "module-PageDetailModule-c17480d48da72cbc00d39ed1054aae11e9e89872ed4bd0daae182eba2ceb25b501c54cf478a157ee03fa4a2f033cb57150bff24955d7aa11c739cb34871ec595",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/page-detail/page-detail.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { PageDetailComponent } from './page-detail.component';\n\n\n\n@NgModule({\n  declarations: [\n    PageDetailComponent\n  ],\n  exports: [\n    PageDetailComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class PageDetailModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "PageDetailComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "PageDetailComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "DEFAULT_COPY",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/design-system/src/lib/components/page-detail/constants.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "''"
+            },
+            {
+                "name": "defaultBrandingVectors",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/design-system/src/lib/components/branding/constants.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  mobile: BrandingVectors.isolatedMonochromeWhite,\n  tablet: BrandingVectors.defaultMonochromeWhite,\n  desktop: BrandingVectors.default\n}"
+            },
+            {
+                "name": "ESHOP_SLOGAN",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/design-system/src/lib/components/page-detail/constants.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'products and shopping carts are our business!'"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<>",
+                "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, HeaderModule, MenuLoader],\n    },\n    template: `<div class=with-menu>\n      <menu-loader [items]=\"items\"></menu-loader>\n      <eshop-header></eshop-header>\n    </div>`,\n    props: { ...args }\n  }\n}"
+            },
+            {
+                "name": "Typical",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "() => ({ })"
+            },
+            {
+                "name": "WithMenu",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [
+            {
+                "name": "BrandingVectors",
+                "childs": [
+                    {
+                        "name": "unknown",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "default",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "default"
+                    },
+                    {
+                        "name": "defaultMonochrome",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "default-monochrome"
+                    },
+                    {
+                        "name": "defaultMonochromeBlack",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "default-monochrome-black"
+                    },
+                    {
+                        "name": "defaultMonochromeWhite",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "default-monochrome-white"
+                    },
+                    {
+                        "name": "isolatedLayout",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "isolated-layout"
+                    },
+                    {
+                        "name": "isolatedMonochromeBlack",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "isolated-monochrome-black"
+                    },
+                    {
+                        "name": "isolatedMonochromeWhite",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "isolated-monochrome-white"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/design-system/src/lib/components/branding/branding-vectors.enum.ts"
+            }
+        ],
+        "groupedVariables": {
+            "projects/design-system/src/lib/components/page-detail/constants.ts": [
+                {
+                    "name": "DEFAULT_COPY",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/design-system/src/lib/components/page-detail/constants.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "''"
+                },
+                {
+                    "name": "ESHOP_SLOGAN",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/design-system/src/lib/components/page-detail/constants.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'products and shopping carts are our business!'"
+                }
+            ],
+            "projects/design-system/src/lib/components/branding/constants.ts": [
+                {
+                    "name": "defaultBrandingVectors",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/design-system/src/lib/components/branding/constants.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  mobile: BrandingVectors.isolatedMonochromeWhite,\n  tablet: BrandingVectors.defaultMonochromeWhite,\n  desktop: BrandingVectors.default\n}"
+                }
+            ],
+            "stories/Button.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Button>",
+                    "defaultValue": "(args: Button) => ({\n  props: args,\n})"
+                }
+            ],
+            "stories/Header.stories.ts": [
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<>",
+                    "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, HeaderModule, MenuLoader],\n    },\n    template: `<div class=with-menu>\n      <menu-loader [items]=\"items\"></menu-loader>\n      <eshop-header></eshop-header>\n    </div>`,\n    props: { ...args }\n  }\n}"
+                },
+                {
+                    "name": "Typical",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "() => ({ })"
+                },
+                {
+                    "name": "WithMenu",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {
+            "projects/design-system/src/lib/components/branding/branding-vectors.enum.ts": [
+                {
+                    "name": "BrandingVectors",
+                    "childs": [
+                        {
+                            "name": "unknown",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "default",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "default"
+                        },
+                        {
+                            "name": "defaultMonochrome",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "default-monochrome"
+                        },
+                        {
+                            "name": "defaultMonochromeBlack",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "default-monochrome-black"
+                        },
+                        {
+                            "name": "defaultMonochromeWhite",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "default-monochrome-white"
+                        },
+                        {
+                            "name": "isolatedLayout",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "isolated-layout"
+                        },
+                        {
+                            "name": "isolatedMonochromeBlack",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "isolated-monochrome-black"
+                        },
+                        {
+                            "name": "isolatedMonochromeWhite",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "isolated-monochrome-white"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/design-system/src/lib/components/branding/branding-vectors.enum.ts"
+                }
+            ]
+        },
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 3,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/design-system/src/lib/components/accordion/accordion-item.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "AccordionItem",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/accordion/accordion.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AccordionComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/branding/branding.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BrandingComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/branding/branding.type.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "BrandingType",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/branding/constants.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultBrandingVectors",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 83,
+                "coverageCount": "5/6",
+                "status": "very-good"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/header/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/main-menu/main-menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MainMenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/main-menu/main-menu.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MainMenuService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/page-detail/constants.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DEFAULT_COPY",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/page-detail/constants.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ESHOP_SLOGAN",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/page-detail/page-detail.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PageDetailComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/page-detail/page-detail.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "PageDetailService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Typical",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithMenu",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/menu-loader.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MenuLoader",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            }
+        ]
+    }
+}

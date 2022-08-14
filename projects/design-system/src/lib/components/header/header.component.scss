@@ -1,0 +1,34 @@
+@import "../../styles/mixins";
+@import "./layout";
+
+header {
+  @include media-mobile {
+    @include two-up-one-down;
+  }
+  background-color: purple;
+
+  &.horizontal {
+    @include horizontal;
+  } 
+}
+
+header > .medial {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 1pt;
+  padding-top: 1pt;
+  color: white
+}
+
+@include media-desktop {
+  header {
+    @include horizontal;
+  }
+  header > .medial {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding-left: 1em;
+  }
+}

@@ -1,0 +1,39 @@
+@mixin vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin two-up-one-down {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  > .trailing {
+    flex-basis: 100%;
+  }
+  > .medial {
+    flex: 1;
+  }
+}
+
+@mixin one-up-two-down {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  > .leading {
+    flex-basis: 100%;
+  }
+  > .medial {
+    flex: 1;
+  }
+}

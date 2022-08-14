@@ -1,0 +1,34 @@
+@mixin media-handheld {
+  @media only screen and (-webkit-min-device-pixel-ratio : 1.5),
+  only screen and (min-device-pixel-ratio : 1.5) {
+    @content
+  }
+};
+
+@mixin media-mobile {
+  @media (max-width: 767px) { 
+    @include media-handheld { @content }
+  }
+};
+
+@mixin media-tablet {
+  @media (min-width: 768px) and (max-width: 1024px) { 
+    @include media-handheld { @content }
+  }
+};
+
+@mixin media-desktop {
+  @media print, screen and (min-width: 1025px) { @content }
+};
+
+@mixin media-not-desktop {
+  @media (max-width: 1024px) { 
+    @include media-handheld { @content }
+  }
+};
+
+@mixin media-not-mobile {
+  @media print, only screen and (min-width: 768px) { 
+    @content 
+  }
+};
