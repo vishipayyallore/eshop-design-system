@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "AccordionItem",
-            "id": "interface-AccordionItem-4c2ca9b389afb22d22c45314a0baa8dc25e9771b7409e724ca59c81b23de8b8c6f8128d86dfbff936f50e203ada4ff2a41e6e4dbb057c637b411d4f5f5b31dde",
+            "id": "interface-AccordionItem-e1b05bdaedd4f2908ceb2d1b0104237e815b057c1d98593225ac472e797bd5f666f4b3e5cc490bc10764e74a88c2a65cf296a0d67c620c943ddbb6796478e57b",
             "file": "projects/design-system/src/lib/components/accordion/accordion-item.interface.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { TemplateRef } from \"@angular/core\"\n\n\nexport interface AccordionItem {\n  expandedTemplate: TemplateRef<any>\n  collapsedTemplate: TemplateRef<any>\n  isExpanded?: boolean\n}\n",
+            "sourceCode": "import { TemplateRef } from \"@angular/core\"\n\n\nexport interface AccordionItem {\n  collapsedTemplate: TemplateRef<any>\n  expandedTemplate?: TemplateRef<any>\n  isExpanded?: boolean\n}\n",
             "properties": [
                 {
                     "name": "collapsedTemplate",
@@ -17,16 +17,16 @@
                     "type": "TemplateRef<any>",
                     "optional": false,
                     "description": "",
-                    "line": 6
+                    "line": 5
                 },
                 {
                     "name": "expandedTemplate",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "TemplateRef<any>",
-                    "optional": false,
+                    "optional": true,
                     "description": "",
-                    "line": 5
+                    "line": 6
                 },
                 {
                     "name": "isExpanded",
@@ -196,7 +196,7 @@
     "components": [
         {
             "name": "AccordionComponent",
-            "id": "component-AccordionComponent-6d489f2dfde5db0cf8902bbcd3f2d06f893f9dc420e8c516dd819c8ccbafc381b928aef089af3f3d8b34fafd530e0f7629d90d7f821e9fcf7080c956a282d673",
+            "id": "component-AccordionComponent-4ad552c3e1fa24d99e1eca2b4916bc244da13e7897abc9b26ee62194e990198f7bd7c7df3ee07c6c42458e795007ba7ad09af3b9b4b40aa93fb88761280ee482",
             "file": "projects/design-system/src/lib/components/accordion/accordion.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -206,7 +206,7 @@
             "providers": [],
             "selector": "eshop-accordion",
             "styleUrls": [
-                "./accordion.component.css"
+                "./accordion.component.scss"
             ],
             "styles": [],
             "templateUrl": [
@@ -235,16 +235,6 @@
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [
-                {
-                    "name": "ngAfterViewInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 21,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
                 {
                     "name": "toggleItem",
                     "args": [
@@ -281,12 +271,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { Observable } from 'rxjs';\n\nimport { AccordionItem } from './accordion-item.interface'\n\n\n@Component({\n  selector: 'eshop-accordion',\n  templateUrl: './accordion.component.html',\n  styleUrls: ['./accordion.component.css'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class AccordionComponent {\n  @Input() isReactiveSurface = true\n  @Input() items$!:  Observable<AccordionItem[]>\n\n  toggleItem(item: AccordionItem): void {\n    item.isExpanded = !item.isExpanded\n  }\n\n  ngAfterViewInit() {\n    this.items$.subscribe(console.log)\n  }\n\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { Observable } from 'rxjs';\n\nimport { AccordionItem } from './accordion-item.interface'\n\n\n@Component({\n  selector: 'eshop-accordion',\n  templateUrl: './accordion.component.html',\n  styleUrls: ['./accordion.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class AccordionComponent {\n  @Input() isReactiveSurface = true\n  @Input() items$!:  Observable<AccordionItem[]>\n\n  toggleItem(item: AccordionItem): void {\n    item.isExpanded = !item.isExpanded\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
-                    "styleUrl": "./accordion.component.css"
+                    "data": ".eshop-accordion {\n  > .item > button.surface {\n    padding: 0;\n    border: none;\n    background: transparent;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    width: 100%;\n    height: 100%;\n    transition: all 0.2s ease-in-out;\n    &:hover {\n      background-color: rgba(255, 255, 255, 0.1);\n    }\n  }\n}",
+                    "styleUrl": "./accordion.component.scss"
                 }
             ],
             "stylesData": "",
@@ -415,7 +405,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".branding {\n  display: flex;\n  flex-direction: column;\n  height: 1.5em;\n}\n\nimg {\n  flex: 1;\n  height: 100%;\n  margin-top: 4pt;\n}\n\n@media screen and (min-width: 768px) and (max-width: 1024px) {\n  .branding {\n    height: 3em;\n  }\n}\n\n@media screen and (min-width: 1024px) {\n  .branding {\n    align-items: flex-start;\n    height: 4cm;\n  }\n  img {\n    margin-top: initial;\n  }\n}\n",
+                    "data": "@import \"../../styles/mixins\";\n\n.branding {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-top: 1pt;\n  padding-bottom: 1pt;\n  height: 1.5em;\n}\n\nimg {\n  flex: 1;\n  height: 100%;\n}\n\n@include media-tablet {\n  .branding {\n    height: 3em;\n    padding-top: 2pt;\n  }\n}\n\n@include media-desktop {\n  .branding {\n    align-items: flex-start;\n    height: 4cm;\n  }\n}\n",
                     "styleUrl": "./branding.component.scss"
                 }
             ],
@@ -697,7 +687,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../styles/mixins\";\n@import \"./layout\";\n\nheader {\n  @include media-mobile {\n    @include two-up-one-down;\n  }\n  background-color: purple;\n\n  &.horizontal {\n    @include horizontal;\n  } \n}\n\nheader > .medial {\n  display: flex;\n  justify-content: center;\n  margin-top: 1ex;\n  color: white\n}\n\n@include media-desktop {\n  header {\n    @include horizontal;\n  }\n  header > .medial {\n    display: flex;\n    align-items: center;\n    flex: 1;\n    padding-left: 1em;\n  }\n}\n",
+                    "data": "@import \"../../styles/mixins\";\n@import \"./layout\";\n\nheader {\n  @include media-mobile {\n    @include two-up-one-down;\n  }\n  background-color: purple;\n\n  &.horizontal {\n    @include horizontal;\n  } \n}\n\nheader > .medial {\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n  padding-bottom: 1pt;\n  padding-top: 1pt;\n  color: white\n}\n\n@include media-desktop {\n  header {\n    @include horizontal;\n  }\n  header > .medial {\n    display: flex;\n    align-items: center;\n    flex: 1;\n    padding-left: 1em;\n  }\n}\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -809,7 +799,7 @@
         },
         {
             "name": "MenuLoader",
-            "id": "component-MenuLoader-60a446451caf8aeb0b261d9535697810efbbf5fe9f07689075eb7fb5918ca66de1e3786c376699b194325e9cffff9c96ecfa3070706689341b3e22fd2b2214e9",
+            "id": "component-MenuLoader-5275fbb004a580e9d9cc47e7266d5cffabd3997d4768cefa1bdf92693ac3fa3dfdcbcc46b362fccf5823bf5ebf75e33227ee110cce60f83c1c71e2ff704ae79a",
             "file": "stories/menu-loader.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -915,7 +905,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from \"@angular/common\"\nimport { Component, ElementRef, Input, QueryList, TemplateRef, ViewChildren } from \"@angular/core\"\nimport { AccordionItem } from \"projects/design-system/src/lib/components/accordion/accordion-item.interface\"\n\nimport { MainMenuService } from \"projects/design-system/src/lib/components/main-menu/main-menu.service\"\n\n\n@Component({\n  standalone: true,\n  imports: [ CommonModule ],\n  template: `\n  <ng-template *ngFor=\"let content of contents\" #templates>\n    <span class=\"item content\">{{ content }}</span>\n  </ng-template>`,\n  selector: 'menu-loader'\n})\nexport class MenuLoader { \n  @ViewChildren('templates') templates!: QueryList<TemplateRef<any>>\n\n  @Input() set items (items: any[]) {\n    this.contents = (items ?? []).map(String)\n    const self = this\n    setTimeout(function(){\n      self.mainMenuService.items\n        .next(self.contents.map(self.preprocessItem.bind(self)))\n    },20)\n  }\n  contents: string[] = []\n  constructor(private mainMenuService: MainMenuService, private elR: ElementRef) {}\n\n  private preprocessItem(_item: any, index: number) {\n    if (index > this.templates.length - 1) return {} as AccordionItem\n    const template = this.templates.find((_template: TemplateRef<any>, i) => index == i)!\n    return { expandedTemplate: template, collapsedTemplate: template }\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from \"@angular/common\"\nimport { Component, ElementRef, Input, QueryList, TemplateRef, ViewChildren } from \"@angular/core\"\nimport { AccordionItem } from \"projects/design-system/src/lib/components/accordion/accordion-item.interface\"\n\nimport { MainMenuService } from \"projects/design-system/src/lib/components/main-menu/main-menu.service\"\n\n\n@Component({\n  standalone: true,\n  imports: [ CommonModule ],\n  template: `\n  <ng-template *ngFor=\"let content of contents\" #templates>\n    <span class=\"item content\">{{ content }}</span>\n  </ng-template>`,\n  selector: 'menu-loader'\n})\nexport class MenuLoader { \n  @ViewChildren('templates') templates!: QueryList<TemplateRef<any>>\n\n  @Input() set items (items: any[]) {\n    this.contents = (items ?? []).map(String)\n    const self = this\n    setTimeout(function(){\n      self.mainMenuService.items\n        .next(self.contents.map(self.preprocessItem.bind(self)))\n    },20)\n  }\n  contents: string[] = []\n  constructor(private mainMenuService: MainMenuService, private elR: ElementRef) {}\n\n  private preprocessItem(_item: any, index: number) {\n    if (index > this.templates.length - 1) return {} as AccordionItem\n    const template = this.templates.find((_template: TemplateRef<any>, i) => index == i)!\n    return { collapsedTemplate: template }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1758,7 +1748,7 @@
                 "linktype": "component",
                 "name": "AccordionComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
