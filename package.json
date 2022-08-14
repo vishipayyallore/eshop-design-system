@@ -1,5 +1,5 @@
 {
-  "name": ".",
+  "name": "ehsop-design-system",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,8 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "prestorybook": "npm run docs:json",
+    "storybook": "start-storybook -p 6006",
+    "prebuild-storybook": "npm run docs:json",
+    "build-storybook": "build-storybook"
   },
   "private": true,
   "dependencies": {

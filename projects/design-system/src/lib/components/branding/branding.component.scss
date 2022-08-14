@@ -1,18 +1,21 @@
 .branding {
   display: flex;
   flex-direction: column;
-  height: 2em;
+  align-items: center;
+  padding-top: 1pt;
+  padding-bottom: 1pt;
+  height: 1.5em;
 }
 
 img {
   flex: 1;
   height: 100%;
-  margin-top: 4pt;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .branding {
     height: 3em;
+    padding-top: 2pt;
   }
 }
 
@@ -20,8 +23,5 @@ img {
   .branding {
     align-items: flex-start;
     height: 4cm;
-  }
-  img {
-    margin-top: initial;
   }
 }

@@ -25,11 +25,9 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/design-system/src/test.ts",
-            "tsConfig": "projects/design-system/tsconfig.spec.json",
-            "karmaConfig": "projects/design-system/karma.conf.js"
+            "no-cache": true
           }
         }
       }
@@ -40,9 +38,10 @@
       "sourceRoot": "stories",
       "architect": {
         "build": {
+          "builder": "@storybook/angular:start-storybook",
           "options": {
             "tsConfig": "tsconfig.json",
-            "styles": [],
+            "styles": ["projects/design-system/src/lib/styles/reset.scss"],
             "scripts": []
           }
         }

@@ -1,17 +1,29 @@
+@import "../../styles/mixins";
+@import "./layout";
+
 header {
+  @include media-mobile {
+    @include two-up-one-down;
+  }
   background-color: purple;
+
+  &.horizontal {
+    @include horizontal;
+  } 
 }
+
 header > .medial {
   display: flex;
   justify-content: center;
-  margin-top: 1ex;
+  align-items: flex-end;
+  padding-bottom: 1pt;
+  padding-top: 1pt;
   color: white
 }
 
-@media screen and (min-width: 1024px) {
+@include media-desktop {
   header {
-    display: flex;
-    flex-direction: row;
+    @include horizontal;
   }
   header > .medial {
     display: flex;

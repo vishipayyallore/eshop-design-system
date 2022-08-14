@@ -1,4 +1,4 @@
-<header>
+<header ngClass="gridClass">
   <ng-container *ngTemplateOutlet="leadingTemplate"></ng-container>
   <ng-container *ngTemplateOutlet="medialTemplate"></ng-container>
   <ng-container *ngTemplateOutlet="trailingTemplate"></ng-container>
@@ -6,7 +6,7 @@
 
 <ng-template #defaultLeadingTemplate>
   <div class=leading>
-    <eshop-branding [vectors]="defaultBrandingVectors"></eshop-branding>
+    <eshop-branding [vectors]="brandingVectors"></eshop-branding>
   </div>
 </ng-template>
 
@@ -18,6 +18,6 @@
 
 <ng-template #defaultTrailingTemplate>
   <div class=trailing>
-    <eshop-main-menu detail=title></eshop-main-menu>
+    <eshop-main-menu></eshop-main-menu>
   </div>
 </ng-template>

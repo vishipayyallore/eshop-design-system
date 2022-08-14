@@ -7,7 +7,7 @@ import { defaultBrandingVectors } from '../branding/constants';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements AfterViewInit {
-  defaultBrandingVectors = defaultBrandingVectors
+  @Input() brandingVectors = defaultBrandingVectors
 
   @Input() leadingTemplate!: TemplateRef<any>;
   @Input() medialTemplate!: TemplateRef<any>;
