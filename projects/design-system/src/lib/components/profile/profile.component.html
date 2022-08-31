@@ -1,0 +1,24 @@
+<div class=eshop-profile>
+  <div classicon-view *ngIf="isShowingIconView">
+    <ng-container *ngTemplateOutlet="iconView"></ng-container>
+  </div>
+  <div classicon-view *ngIf="isShowingPageView">
+    <ng-container *ngTemplateOutlet="pageView"></ng-container>
+  </div>
+</div>
+
+<ng-template #iconView>
+  <a class="profile-icon transparent" href="void(0)" (click)="onClickProfileIcon()" *ngIf="profileIcon$ | async as profileIcon">
+    <img class="link-image" [src]="profileIcon.imgSrc" [alt]="profileIcon.imgAlt">
+  </a>
+</ng-template>
+
+<ng-template #pageView>
+  <section class=profile-page *ngIf="profileIcon$ | async as profileIcon">
+    <header>{{ copy.header }}</header>
+    <div class=profile-details>
+      <span>PROFILE GOES HERE</span>
+      <img [src]="profileIcon.imgSrc" [alt]="profileIcon.imgAlt">
+    </div>
+  </section>
+</ng-template>

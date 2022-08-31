@@ -27,7 +27,8 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "no-cache": true
+            "no-cache": true,
+            "tsConfig": "tsconfig.spec.json"
           }
         }
       }

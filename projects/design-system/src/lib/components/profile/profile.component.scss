@@ -1,0 +1,18 @@
+@import "../../styles/mixins";
+
+.link-image {
+  height: 100%;
+  max-height: 1.5em;
+}
+
+@include media-tablet {
+  .link-image {
+    max-height: 3em;
+  }
+}
+
+@include media-desktop {
+  .link-image {
+    max-height: calc(4cm - 4pt);
+  }
+}

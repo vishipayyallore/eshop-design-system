@@ -1,6 +1,6 @@
 @import "../../styles/mixins";
 
-.branding {
+.eshop-branding {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,14 +15,14 @@ img {
 }
 
 @include media-tablet {
-  .branding {
+  .eshop-branding {
     height: 3em;
     padding-top: 2pt;
   }
 }
 
 @include media-desktop {
-  .branding {
+  .eshop-branding {
     align-items: flex-start;
     height: 4cm;
   }

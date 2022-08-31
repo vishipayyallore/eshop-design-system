@@ -1,0 +1,71 @@
+@import "./mixins";
+@import "./palette";
+
+$serif: eShop, 'Hepta Slab', serif;
+$sans: 'Noto Sans', sans-serif;
+
+$type-xs: 0.6rem;
+$type-sm: 0.8rem;
+$type-md: 1rem;
+$type-lg: 1.5rem;
+$type-xl: 2rem;
+$type-display: 3rem;
+$line-height: 1.2;
+$line-height--display: 1.05;
+
+:root {
+  font-family: $sans;
+  font-size: 16px;
+
+  @include media-tablet {
+    font-size: 14px;
+  }
+
+  @include media-desktop {
+    font-size: 12pt;
+  }
+}
+
+body {
+  color: $ink-color;
+  background-color: $surface-color;
+}
+
+header, h1, h2, h3, h4, legend {
+  font-family: $serif
+}
+
+h1 {
+  font-size: $type-display;
+  $line-height--display: 1.05;
+}
+h2 {
+  font-size: $type-xl;
+  font-weight: bold;
+  $line-height--display: 1.05;
+}
+h3 {
+  font-size: $type-xl;
+  $line-height--display: 1.05;
+}
+h4 {
+  font-size: $type-lg;
+  font-weight: bold;
+}
+h4 {
+  font-size: $type-lg
+}
+h5 {
+  font-weight: bold
+}
+
+p {
+  font-family: $serif;
+  font-size: $type-md;
+  line-height: $line-height;
+}
+
+.display {
+  font-family: $serif;
+  line-height: $line-height--display;
+}
