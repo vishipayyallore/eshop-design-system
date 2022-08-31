@@ -1,0 +1,26 @@
+@import './typography';
+
+@mixin variables {
+  --type-xs: $type-xs;
+  --type-sm: $type-sm;
+  --type-md: $type-md;
+  --type-lg: $type-lg;
+  --type-xl: $type-xl;
+  --type-display: $type-display;
+
+  --type-serif: $serif;
+  --type-sans: $sans;
+
+  --line-height: $line-height;
+  --line-height--display: $line-height--display;
+
+  --primary-color: $primary-color;
+  --secondary-color: $secondary-color;
+  --accent-color: $accent-color;
+  --surface-color: $surface-color;
+  --ink-color: $ink-color;
+}
+
+:root {
+  @include variables
+}

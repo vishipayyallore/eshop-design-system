@@ -18,7 +18,7 @@ export class HeaderComponent implements AfterViewInit {
   @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>;
 
   ngAfterViewInit(): void {
-    this.configureTemplatesInitialState()
+    setTimeout(this.configureTemplatesInitialState.bind(this))
   }
 
   private configureTemplatesInitialState(): void {

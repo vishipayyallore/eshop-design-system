@@ -82,6 +82,38 @@
             "indexSignatures": [],
             "kind": 165,
             "methods": []
+        },
+        {
+            "name": "ProfileIcon",
+            "id": "interface-ProfileIcon-39e687e5f5c6709a9f917d46032af7475342002162976ec8b296d98f71c2ff7346a68b5a83dfd0d60fe0de1c3268cee53ee10841e215fa8513fce1eddc6cf1d1",
+            "file": "projects/design-system/src/lib/components/profile/profile-icon.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface ProfileIcon {\n  imgSrc: string\n  imgAlt: string\n}",
+            "properties": [
+                {
+                    "name": "imgAlt",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "imgSrc",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
         }
     ],
     "injectables": [
@@ -187,6 +219,66 @@
                 }
             },
             "type": "injectable"
+        },
+        {
+            "name": "ProfileService",
+            "id": "injectable-ProfileService-fdebb854440fe40e0d1ff8a43aeaef40b5c24e5e90b44cfa6e8669676d40b0cec40684d361bea0a2427c787c9ce19b9ff28df86e183d9a927dbcfcb34eb839bb",
+            "file": "projects/design-system/src/lib/components/profile/profile.service.ts",
+            "properties": [
+                {
+                    "name": "navigateToProfile",
+                    "defaultValue": "new Subject<null>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "navigateToProfile$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<>",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "profileIcon",
+                    "defaultValue": "new BehaviorSubject<ProfileIcon>(DEFAULT_PROFILE)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "profileIcon$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<ProfileIcon>",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core'\nimport { BehaviorSubject, Subject, Observable } from 'rxjs'\n\nimport { DEFAULT_PROFILE } from './constants'\nimport type { ProfileIcon } from './profile-icon.interface'\n\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class ProfileService {\n  profileIcon = new BehaviorSubject<ProfileIcon>(DEFAULT_PROFILE)\n  profileIcon$: Observable<ProfileIcon>\n\n  navigateToProfile = new Subject<null>()\n  navigateToProfile$: Observable<null>\n\n  constructor() {\n    this.profileIcon$ = this.profileIcon.asObservable()\n    this.navigateToProfile$ = this.navigateToProfile.asObservable()\n  }\n\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 16
+            },
+            "type": "injectable"
         }
     ],
     "guards": [],
@@ -280,7 +372,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<ul class= \"eshop-accordion\" *ngFor=\"let item of items$ | async\">\n  <li class=item ngClass=\"{ expanded: item.isExpanded }\">\n    <button class=surface *ngIf=\"isReactiveSurface\" (click)=\"toggleItem(item)\">\n      <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>      \n    </button>\n    <ng-container *ngIf=\"!isReactiveSurface\">\n      <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>      \n    </ng-container>\n\n    <ng-template #itemContent>\n      <div class=\"item-content header\" *ngIf=\"!item.isExpanded\">\n        <ng-container *ngTemplateOutlet=\"item.collapsedTemplate\"></ng-container>\n      </div>\n      <div class=item-content *ngIf=\"item.isExpanded\">\n        <ng-container *ngTemplateOutlet=\"item.expandedTemplate\"></ng-container>\n      </div>  \n    </ng-template>\n  </li>\n</ul>\n"
+            "templateData": "<ul class=eshop-accordion *ngFor=\"let item of items$ | async\">\n  <li class=item ngClass=\"{ expanded: item.isExpanded }\">\n    <button class=surface *ngIf=\"isReactiveSurface\" (click)=\"toggleItem(item)\">\n      <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>      \n    </button>\n    <ng-container *ngIf=\"!isReactiveSurface\">\n      <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>      \n    </ng-container>\n\n    <ng-template #itemContent>\n      <div class=\"item-content header\" *ngIf=\"!item.isExpanded\">\n        <ng-container *ngTemplateOutlet=\"item.collapsedTemplate\"></ng-container>\n      </div>\n      <div class=item-content *ngIf=\"item.isExpanded\">\n        <ng-container *ngTemplateOutlet=\"item.expandedTemplate!\"></ng-container>\n      </div>  \n    </ng-template>\n  </li>\n</ul>\n"
         },
         {
             "name": "BrandingComponent",
@@ -424,104 +516,41 @@
                     }
                 }
             },
-            "templateData": "<div class=branding>\n  <img [src]=\"vector\" />\n</div>"
+            "templateData": "<div class=eshop-branding>\n  <img [src]=\"vector\" />\n</div>"
         },
         {
-            "name": "ButtonComponent",
-            "id": "component-ButtonComponent-4ef205c97a334c309aa4001c8ab4a6d9571dcae18d0e85aaf0d367467ab5d3a9f13ab3573726f1fcb409bc9b49894dadfb80b1bbe1b6ba7041455ad9d4922004",
-            "file": "projects/design-system/src/lib/components/button/button.component.ts",
+            "name": "FooterComponent",
+            "id": "component-FooterComponent-8d7be48c9646cdd85b8fb53ca968b6159617f01461b2044631d2274022f218d61ee0903ed36dd2e02597e0b440888df280cc8f5d5d460c21ab0815c3fd5e8f14",
+            "file": "projects/design-system/src/lib/components/footer/footer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-button",
+            "selector": "eshop-footer",
             "styleUrls": [
-                "./button.css"
+                "./footer.component.css"
             ],
             "styles": [],
-            "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./footer.component.html"
+            ],
             "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "backgroundColor",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nWhat background color to use\n",
-                    "description": "<p>What background color to use</p>\n",
-                    "line": 26,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "label",
-                    "defaultValue": "'Button'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "pos": 711,
-                            "end": 724,
-                            "flags": 4227072,
-                            "modifierFlagsCache": 0,
-                            "transformFlags": 0,
-                            "kind": 325,
-                            "tagName": {
-                                "pos": 712,
-                                "end": 720,
-                                "flags": 4227072,
-                                "modifierFlagsCache": 0,
-                                "transformFlags": 0,
-                                "kind": 79,
-                                "escapedText": "required"
-                            },
-                            "comment": ""
-                        }
-                    ],
-                    "rawdescription": "\n\nButton contents\n\n",
-                    "description": "<p>Button contents</p>\n",
-                    "line": 40,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "primary",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nIs this the principal call to action on the page?\n",
-                    "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 20,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "size",
-                    "defaultValue": "'medium'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nHow large should the button be?\n",
-                    "description": "<p>How large should the button be?</p>\n",
-                    "line": 32,
-                    "type": "\"small\" | \"medium\" | \"large\"",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onClick",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nOptional click handler\n",
-                    "description": "<p>Optional click handler</p>\n",
-                    "line": 46,
-                    "type": "EventEmitter"
-                }
-            ],
+            "inputsClass": [],
+            "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -529,26 +558,27 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'eshop-footer',\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.css']\n})\nexport class FooterComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".storybook-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
-                    "styleUrl": "./button.css"
+                    "data": "",
+                    "styleUrl": "./footer.component.css"
                 }
             ],
             "stylesData": "",
-            "accessors": {
-                "classes": {
-                    "name": "classes",
-                    "getSignature": {
-                        "name": "classes",
-                        "type": "[]",
-                        "returnType": "string[]",
-                        "line": 48
-                    }
-                }
-            }
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<footer class=eshop-footer>\n  <ng-container *ngTemplateOutlet=\"contentTemplate\"></ng-container>\n</footer>\n\n<ng-template #ngCongtentTemplate>\n  <ng-content></ng-content>\n</ng-template>\n\n<ng-template #defaultContentTemplate>\n  <div class=leading>\n    <!-- ---->\n  </div>\n</ng-template>\n\n<footer class=2.0>\n  <!-- back to top (if page has scroll) -->\n  <!-- join (if not logged in) -->\n  <!-- super menu -->\n  <!-- legal and social bar -->\n</footer>"
         },
         {
             "name": "HeaderComponent",
@@ -687,7 +717,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../styles/mixins\";\n@import \"./layout\";\n\nheader {\n  @include media-mobile {\n    @include two-up-one-down;\n  }\n  background-color: purple;\n\n  &.horizontal {\n    @include horizontal;\n  } \n}\n\nheader > .medial {\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n  padding-bottom: 1pt;\n  padding-top: 1pt;\n  color: white\n}\n\n@include media-desktop {\n  header {\n    @include horizontal;\n  }\n  header > .medial {\n    display: flex;\n    align-items: center;\n    flex: 1;\n    padding-left: 1em;\n  }\n}\n",
+                    "data": "@import \"../../styles/mixins\";\n@import \"../../styles/palette\";\n@import \"./layout\";\n\nheader {\n  @include media-mobile {\n    @include two-up-one-down;\n  }\n  background-color: $primary-color;\n\n  &.horizontal {\n    @include horizontal;\n  } \n}\n\nheader > .medial {\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n  padding-bottom: 1pt;\n  padding-top: 1pt;\n  color: $accent-color;\n}\n\n@include media-desktop {\n  header {\n    @include horizontal;\n  }\n  header > .medial {\n    display: flex;\n    align-items: center;\n    flex: 1;\n    padding-left: 1em;\n  }\n}\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -695,7 +725,7 @@
             "implements": [
                 "AfterViewInit"
             ],
-            "templateData": "<header ngClass=\"gridClass\">\n  <ng-container *ngTemplateOutlet=\"leadingTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"medialTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"trailingTemplate\"></ng-container>\n</header>\n\n<ng-template #defaultLeadingTemplate>\n  <div class=leading>\n    <eshop-branding [vectors]=\"brandingVectors\"></eshop-branding>\n  </div>\n</ng-template>\n\n<ng-template #defaultMedialTemplate>\n  <div class=medial>\n    <eshop-page-detail detail=title></eshop-page-detail>\n  </div>\n</ng-template>\n\n<ng-template #defaultTrailingTemplate>\n  <div class=trailing>\n    <eshop-main-menu></eshop-main-menu>\n  </div>\n</ng-template>"
+            "templateData": "<header class=eshop-header>\n  <ng-container *ngTemplateOutlet=\"leadingTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"medialTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"trailingTemplate\"></ng-container>\n</header>\n\n<ng-template #defaultLeadingTemplate>\n  <div class=leading>\n    <eshop-branding [vectors]=\"brandingVectors\"></eshop-branding>\n  </div>\n</ng-template>\n\n<ng-template #defaultMedialTemplate>\n  <div class=medial>\n    <eshop-page-detail detail=title></eshop-page-detail>\n  </div>\n</ng-template>\n\n<ng-template #defaultTrailingTemplate>\n  <div class=trailing>\n    <eshop-main-menu></eshop-main-menu>\n  </div>\n</ng-template>"
         },
         {
             "name": "MainMenuComponent",
@@ -795,7 +825,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<eshop-accordion [items$]=\"items$\" [isReactiveSurface]=\"isExpandable\"></eshop-accordion>"
+            "templateData": "<eshop-accordion class=eshop-main-menu [items$]=\"items$\" [isReactiveSurface]=\"isExpandable\"></eshop-accordion>"
         },
         {
             "name": "MenuLoader",
@@ -1081,7 +1111,122 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<span>{{ copy }}</span>\n"
+            "templateData": "<span class=eshop-page-detail>{{ copy }}</span>\n"
+        },
+        {
+            "name": "ProfileComponent",
+            "id": "component-ProfileComponent-805df9473993b37938b7486d92815ce1bdf0494fced837fea66699874bf0846415542f0ff1149a79594d9b461312c9c99fdb1a594b251a5bb1cfe2efcedd2931",
+            "file": "projects/design-system/src/lib/components/profile/profile.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eshop-profile",
+            "styleUrls": [
+                "./profile.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./profile.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "isShowingIconView",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isShowingPageView",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "copy",
+                    "defaultValue": "{ header: DEFAULT_PROFILE_HEADER }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "profileIcon$",
+                    "defaultValue": "this.profileService.profileIcon$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onClickProfileIcon",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core'\n\nimport { ProfileService } from './profile.service'\nimport { DEFAULT_PROFILE_HEADER } from './copy'\n\n\n@Component({\n  selector: 'eshop-profile',\n  templateUrl: './profile.component.html',\n  styleUrls: ['./profile.component.scss']\n})\nexport class ProfileComponent {\n  @Input() isShowingIconView?: boolean\n  @Input() isShowingPageView?: boolean\n  profileIcon$ = this.profileService.profileIcon$\n\n  copy = { header: DEFAULT_PROFILE_HEADER }\n\n  constructor(private profileService: ProfileService) { }\n\n  onClickProfileIcon() {\n    this.profileService.navigateToProfile.next(null)\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"../../styles/mixins\";\n\n.link-image {\n  height: 100%;\n  max-height: 1.5em;\n}\n\n@include media-tablet {\n  .link-image {\n    max-height: 3em;\n  }\n}\n\n@include media-desktop {\n  .link-image {\n    max-height: calc(4cm - 4pt);\n  }\n}",
+                    "styleUrl": "./profile.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "profileService",
+                        "type": "ProfileService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 17,
+                "jsdoctags": [
+                    {
+                        "name": "profileService",
+                        "type": "ProfileService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<div class=eshop-profile>\n  <div classicon-view *ngIf=\"isShowingIconView\">\n    <ng-container *ngTemplateOutlet=\"iconView\"></ng-container>\n  </div>\n  <div classicon-view *ngIf=\"isShowingPageView\">\n    <ng-container *ngTemplateOutlet=\"pageView\"></ng-container>\n  </div>\n</div>\n\n<ng-template #iconView>\n  <a class=\"profile-icon transparent\" href=\"void(0)\" (click)=\"onClickProfileIcon()\" *ngIf=\"profileIcon$ | async as profileIcon\">\n    <img class=\"link-image\" [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n  </a>\n</ng-template>\n\n<ng-template #pageView>\n  <section class=profile-page *ngIf=\"profileIcon$ | async as profileIcon\">\n    <header>{{ copy.header }}</header>\n    <div class=profile-details>\n      <span>PROFILE GOES HERE</span>\n      <img [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n    </div>\n  </section>\n</ng-template>\n"
         }
     ],
     "modules": [
@@ -1175,13 +1320,13 @@
         },
         {
             "name": "DesignSystemModule",
-            "id": "module-DesignSystemModule-249cccfeb91a857d5ce0eefdf87cb3ef4b7833a400bd7f45e7cd1883501234a69dde06ef468f017d50aa00c858035dd009e0db27f0c904808a974ea3c28893e5",
+            "id": "module-DesignSystemModule-4dd7886c05aa202440f48e6fee66a8ee90e5864e968300d3c14f8fa796109dd57861088a4d0204525d051c630f593f97223a1e75b465997c1d27f6ac016c1939",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/design-system/src/lib/design-system.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\"\nimport ButtonComponent from \"./components/button/button.component\";\nimport { HeaderModule } from \"./components/header/header.module\";\n\n@NgModule({\n  declarations: [ButtonComponent],\n  exports: [ButtonComponent],\n  imports: [HeaderModule],\n})\nexport class DesignSystemModule {}\n",
+            "sourceCode": "import { NgModule } from \"@angular/core\"\n\nimport { HeaderModule } from \"./components/header/header.module\"\nimport { FooterComponent } from './components/footer/footer.component'\nimport { ProfileModule } from \"./components/profile/profile.module\"\nimport { MainMenuModule } from \"./components/main-menu/main-menu.module\"\nimport { PageDetailModule } from \"./components/page-detail/page-detail.module\"\nimport { BrandingModule } from \"./components/branding/branding.module\"\nimport { AccordionModule } from \"./components/accordion/accordion.module\"\n\n@NgModule({\n  declarations: [FooterComponent],\n  exports: [FooterComponent],\n  imports: [\n    HeaderModule, ProfileModule, MainMenuModule, \n    PageDetailModule, BrandingModule, AccordionModule\n  ],\n})\nexport class DesignSystemModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1191,7 +1336,7 @@
                     "type": "declarations",
                     "elements": [
                         {
-                            "name": "ButtonComponent"
+                            "name": "FooterComponent"
                         }
                     ]
                 },
@@ -1199,7 +1344,22 @@
                     "type": "imports",
                     "elements": [
                         {
+                            "name": "AccordionModule"
+                        },
+                        {
+                            "name": "BrandingModule"
+                        },
+                        {
                             "name": "HeaderModule"
+                        },
+                        {
+                            "name": "MainMenuModule"
+                        },
+                        {
+                            "name": "PageDetailModule"
+                        },
+                        {
+                            "name": "ProfileModule"
                         }
                     ]
                 },
@@ -1207,7 +1367,7 @@
                     "type": "exports",
                     "elements": [
                         {
-                            "name": "ButtonComponent"
+                            "name": "FooterComponent"
                         }
                     ]
                 },
@@ -1366,10 +1526,64 @@
                     "elements": []
                 }
             ]
+        },
+        {
+            "name": "ProfileModule",
+            "id": "module-ProfileModule-61eebbf329089ca95a818424c8931f5c415e62fec02511b077cd8a18689dacd03e7974d407da20048bcf959b5348bf118c3ac008308b4b121ea6a70ff8f69259",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/profile/profile.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ProfileComponent } from './profile.component';\n\n\n\n@NgModule({\n  declarations: [\n    ProfileComponent\n  ],\n  exports: [\n    ProfileComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class ProfileModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ProfileComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ProfileComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
         }
     ],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "ANONYMOUS_PROFILE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/design-system/src/lib/components/profile/constants.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ProfileIcon",
+                "defaultValue": "{\n  imgSrc: \"https://cataas.com/cat\",\n  imgAlt: \"LogIn\"\n}"
+            },
             {
                 "name": "DEFAULT_COPY",
                 "ctype": "miscellaneous",
@@ -1379,6 +1593,26 @@
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "''"
+            },
+            {
+                "name": "DEFAULT_PROFILE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/design-system/src/lib/components/profile/constants.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "ANONYMOUS_PROFILE"
+            },
+            {
+                "name": "DEFAULT_PROFILE_HEADER",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/design-system/src/lib/components/profile/copy.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "\"Profile\""
             },
             {
                 "name": "defaultBrandingVectors",
@@ -1401,54 +1635,14 @@
                 "defaultValue": "'products and shopping carts are our business!'"
             },
             {
-                "name": "Large",
+                "name": "Icon",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Button.stories.ts",
+                "file": "stories/Profile.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Small",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1461,14 +1655,34 @@
                 "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, HeaderModule, MenuLoader],\n    },\n    template: `<div class=with-menu>\n      <menu-loader [items]=\"items\"></menu-loader>\n      <eshop-header></eshop-header>\n    </div>`,\n    props: { ...args }\n  }\n}"
             },
             {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Profile.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ProfileComponent>",
+                "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule],\n    },\n    template: `<eshop-profile [isShowingIconView]=\"isShowingIconView\"></eshop-profile>`,\n    props: { ...args }\n  }\n}"
+            },
+            {
                 "name": "Typical",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "() => ({ })"
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Typical",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Profile.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "WithMenu",
@@ -1544,6 +1758,28 @@
             }
         ],
         "groupedVariables": {
+            "projects/design-system/src/lib/components/profile/constants.ts": [
+                {
+                    "name": "ANONYMOUS_PROFILE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/design-system/src/lib/components/profile/constants.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ProfileIcon",
+                    "defaultValue": "{\n  imgSrc: \"https://cataas.com/cat\",\n  imgAlt: \"LogIn\"\n}"
+                },
+                {
+                    "name": "DEFAULT_PROFILE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/design-system/src/lib/components/profile/constants.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "ANONYMOUS_PROFILE"
+                }
+            ],
             "projects/design-system/src/lib/components/page-detail/constants.ts": [
                 {
                     "name": "DEFAULT_COPY",
@@ -1566,6 +1802,18 @@
                     "defaultValue": "'products and shopping carts are our business!'"
                 }
             ],
+            "projects/design-system/src/lib/components/profile/copy.ts": [
+                {
+                    "name": "DEFAULT_PROFILE_HEADER",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/design-system/src/lib/components/profile/copy.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "\"Profile\""
+                }
+            ],
             "projects/design-system/src/lib/components/branding/constants.ts": [
                 {
                     "name": "defaultBrandingVectors",
@@ -1578,42 +1826,12 @@
                     "defaultValue": "{\n  mobile: BrandingVectors.isolatedMonochromeWhite,\n  tablet: BrandingVectors.defaultMonochromeWhite,\n  desktop: BrandingVectors.default\n}"
                 }
             ],
-            "stories/Button.stories.ts": [
+            "stories/Profile.stories.ts": [
                 {
-                    "name": "Large",
+                    "name": "Icon",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
+                    "file": "stories/Profile.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -1623,11 +1841,21 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
+                    "file": "stories/Profile.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<Button>",
-                    "defaultValue": "(args: Button) => ({\n  props: args,\n})"
+                    "type": "Story<ProfileComponent>",
+                    "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule],\n    },\n    template: `<eshop-profile [isShowingIconView]=\"isShowingIconView\"></eshop-profile>`,\n    props: { ...args }\n  }\n}"
+                },
+                {
+                    "name": "Typical",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Profile.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 }
             ],
             "stories/Header.stories.ts": [
@@ -1648,8 +1876,8 @@
                     "file": "stories/Header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "() => ({ })"
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 },
                 {
                     "name": "WithMenu",
@@ -1730,7 +1958,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 3,
+        "count": 0,
         "status": "low",
         "files": [
             {
@@ -1780,13 +2008,13 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/design-system/src/lib/components/button/button.component.ts",
+                "filePath": "projects/design-system/src/lib/components/footer/footer.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
+                "name": "FooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
             },
             {
                 "filePath": "projects/design-system/src/lib/components/header/header.component.ts",
@@ -1854,53 +2082,60 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/Button.stories.ts",
+                "filePath": "projects/design-system/src/lib/components/profile/constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Large",
+                "name": "ANONYMOUS_PROFILE",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "stories/Button.stories.ts",
+                "filePath": "projects/design-system/src/lib/components/profile/constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "DEFAULT_PROFILE",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "stories/Button.stories.ts",
+                "filePath": "projects/design-system/src/lib/components/profile/copy.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Secondary",
+                "name": "DEFAULT_PROFILE_HEADER",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
+                "filePath": "projects/design-system/src/lib/components/profile/profile-icon.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ProfileIcon",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
-                "filePath": "stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
+                "filePath": "projects/design-system/src/lib/components/profile/profile.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ProfileComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/profile/profile.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ProfileService",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -1929,6 +2164,36 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "WithMenu",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Profile.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Icon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Profile.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Profile.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Typical",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

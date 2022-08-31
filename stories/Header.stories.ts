@@ -31,8 +31,7 @@ const Template: Story<HeaderComponent & MenuLoader> = function(args:any) {
   }
 }
 
-export const Typical: Story = () => ({ });
-Typical.parameters = Object.assign({}, Template);
+export const Typical = Template.bind({});
 
 export const WithMenu = Template.bind({});
 WithMenu.args = {
