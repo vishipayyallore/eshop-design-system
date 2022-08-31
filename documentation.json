@@ -582,7 +582,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-9d65d478fdbdcc5e9dc35e5594437f5cbedfbd61161f695de288501d3e5e20391a3641931cf876714e023500c29ffe8f40ceae33a5905e16a62a827a3e07ec4e",
+            "id": "component-HeaderComponent-e35ad7fd47f4bcc4a91de7952a536ee7ac58a3954d2b753270322af127adc32eac2fb00e1cccd54729fc31b0160aa78d86d873350fcb188ecdc8ad1421d97a24",
             "file": "projects/design-system/src/lib/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -713,7 +713,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, AfterViewInit, TemplateRef, ViewChild } from '@angular/core';\nimport { defaultBrandingVectors } from '../branding/constants';\n\n@Component({\n  selector: 'eshop-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements AfterViewInit {\n  @Input() brandingVectors = defaultBrandingVectors\n\n  @Input() leadingTemplate!: TemplateRef<any>;\n  @Input() medialTemplate!: TemplateRef<any>;\n  @Input() trailingTemplate!: TemplateRef<any>;\n\n  @ViewChild('defaultLeadingTemplate') defaultLeadingTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultMedialTemplate') defaultMedialTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>;\n\n  ngAfterViewInit(): void {\n    this.configureTemplatesInitialState()\n  }\n\n  private configureTemplatesInitialState(): void {\n    if (!this.leadingTemplate) {\n      this.leadingTemplate = this.defaultLeadingTemplateRef;\n    }\n    if (!this.medialTemplate) {\n      this.medialTemplate = this.defaultMedialTemplateRef;\n    }\n    if (!this.trailingTemplate) {\n      this.trailingTemplate = this.defaultTrailingTemplateRef;\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Input, AfterViewInit, TemplateRef, ViewChild } from '@angular/core';\nimport { defaultBrandingVectors } from '../branding/constants';\n\n@Component({\n  selector: 'eshop-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements AfterViewInit {\n  @Input() brandingVectors = defaultBrandingVectors\n\n  @Input() leadingTemplate!: TemplateRef<any>;\n  @Input() medialTemplate!: TemplateRef<any>;\n  @Input() trailingTemplate!: TemplateRef<any>;\n\n  @ViewChild('defaultLeadingTemplate') defaultLeadingTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultMedialTemplate') defaultMedialTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>;\n\n  ngAfterViewInit(): void {\n    setTimeout(this.configureTemplatesInitialState.bind(this))\n  }\n\n  private configureTemplatesInitialState(): void {\n    if (!this.leadingTemplate) {\n      this.leadingTemplate = this.defaultLeadingTemplateRef;\n    }\n    if (!this.medialTemplate) {\n      this.medialTemplate = this.defaultMedialTemplateRef;\n    }\n    if (!this.trailingTemplate) {\n      this.trailingTemplate = this.defaultTrailingTemplateRef;\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
