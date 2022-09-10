@@ -1,4 +1,3 @@
-import { componentWrapperDecorator, moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 import type { Story, Meta } from '@storybook/angular';
 
@@ -11,7 +10,6 @@ import { defaultBrandingVectors } from 'projects/design-system/src/lib/component
 export default {
   title: 'HeaderComponent',
   component: HeaderComponent,
-  decorators: [componentWrapperDecorator(HeaderComponent)],
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/angular/configure/story-layout
     layout: 'fullscreen',

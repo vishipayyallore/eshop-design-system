@@ -7,16 +7,39 @@ import { defaultBrandingVectors } from '../branding/constants';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements AfterViewInit {
+  /** 
+  * @internal 
+  */
   @Input() brandingVectors = defaultBrandingVectors
-
+  /** 
+  * @internal 
+  */
   @Input() leadingTemplate!: TemplateRef<any>;
+  /** 
+  * @internal 
+  */  
   @Input() medialTemplate!: TemplateRef<any>;
+  /** 
+  * @internal 
+  */
   @Input() trailingTemplate!: TemplateRef<any>;
 
+  /** 
+  * @internal 
+  */
   @ViewChild('defaultLeadingTemplate') defaultLeadingTemplateRef!: TemplateRef<HTMLElement>;
+  /** 
+  * @internal 
+  */  
   @ViewChild('defaultMedialTemplate') defaultMedialTemplateRef!: TemplateRef<HTMLElement>;
+  /** 
+  * @internal 
+  */
   @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>;
 
+  /** 
+  * @internal 
+  */  
   ngAfterViewInit(): void {
     setTimeout(this.configureTemplatesInitialState.bind(this))
   }
