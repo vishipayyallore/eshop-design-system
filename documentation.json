@@ -429,19 +429,6 @@
                     "optional": false,
                     "description": "",
                     "line": 19
-                },
-                {
-                    "name": "svgRegistry",
-                    "defaultValue": "new Map<BrandingVectors, any>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 17,
-                    "modifierKind": [
-                        121
-                    ]
                 }
             ],
             "methodsClass": [
@@ -454,25 +441,6 @@
                     "line": 36,
                     "deprecated": false,
                     "deprecationMessage": ""
-                },
-                {
-                    "name": "onWindowResize",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 28,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "decorators": [
-                        {
-                            "name": "HostListener",
-                            "stringifiedArguments": "'window:resize', ['$event']"
-                        }
-                    ],
-                    "modifierKind": [
-                        121
-                    ]
                 }
             ],
             "deprecated": false,
@@ -578,11 +546,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<footer class=eshop-footer>\n  <ng-container *ngTemplateOutlet=\"contentTemplate\"></ng-container>\n</footer>\n\n<ng-template #ngCongtentTemplate>\n  <ng-content></ng-content>\n</ng-template>\n\n<ng-template #defaultContentTemplate>\n  <div class=leading>\n    <!-- ---->\n  </div>\n</ng-template>\n\n<footer class=2.0>\n  <!-- back to top (if page has scroll) -->\n  <!-- join (if not logged in) -->\n  <!-- super menu -->\n  <!-- legal and social bar -->\n</footer>"
+            "templateData": "<footer class=eshop-footer>\n  <ng-container *ngTemplateOutlet=\"contentTemplate\"></ng-container>\n</footer>\n\n<ng-template #contentTemplate>\n  <ng-content></ng-content>\n</ng-template>\n\n<ng-template #defaultContentTemplate>\n  <div class=leading>\n    <!-- ---->\n  </div>\n</ng-template>\n\n<footer class=2.0>\n  <!-- back to top (if page has scroll) -->\n  <!-- join (if not logged in) -->\n  <!-- super menu -->\n  <!-- legal and social bar -->\n</footer>"
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-e35ad7fd47f4bcc4a91de7952a536ee7ac58a3954d2b753270322af127adc32eac2fb00e1cccd54729fc31b0160aa78d86d873350fcb188ecdc8ad1421d97a24",
+            "id": "component-HeaderComponent-95d40d07c216913404c578a5c287bdc26e187c7a99c6a40968325d27f750d2588a4a7ec181f6033b9259c23627c6e3455ad206d69278eb7291862ab7349dc4fb",
             "file": "projects/design-system/src/lib/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -598,114 +566,10 @@
                 "./header.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "brandingVectors",
-                    "defaultValue": "defaultBrandingVectors",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 10,
-                    "type": "any",
-                    "decorators": []
-                },
-                {
-                    "name": "leadingTemplate",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 12,
-                    "type": "TemplateRef<any>",
-                    "decorators": []
-                },
-                {
-                    "name": "medialTemplate",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 13,
-                    "type": "TemplateRef<any>",
-                    "decorators": []
-                },
-                {
-                    "name": "trailingTemplate",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 14,
-                    "type": "TemplateRef<any>",
-                    "decorators": []
-                }
-            ],
+            "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "defaultLeadingTemplateRef",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "TemplateRef<HTMLElement>",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'defaultLeadingTemplate'"
-                        }
-                    ]
-                },
-                {
-                    "name": "defaultMedialTemplateRef",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "TemplateRef<HTMLElement>",
-                    "optional": false,
-                    "description": "",
-                    "line": 17,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'defaultMedialTemplate'"
-                        }
-                    ]
-                },
-                {
-                    "name": "defaultTrailingTemplateRef",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "TemplateRef<HTMLElement>",
-                    "optional": false,
-                    "description": "",
-                    "line": 18,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'defaultTrailingTemplate'"
-                        }
-                    ]
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "configureTemplatesInitialState",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 24,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        121
-                    ]
-                },
-                {
-                    "name": "ngAfterViewInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 20,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "propertiesClass": [],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -713,7 +577,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, AfterViewInit, TemplateRef, ViewChild } from '@angular/core';\nimport { defaultBrandingVectors } from '../branding/constants';\n\n@Component({\n  selector: 'eshop-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements AfterViewInit {\n  @Input() brandingVectors = defaultBrandingVectors\n\n  @Input() leadingTemplate!: TemplateRef<any>;\n  @Input() medialTemplate!: TemplateRef<any>;\n  @Input() trailingTemplate!: TemplateRef<any>;\n\n  @ViewChild('defaultLeadingTemplate') defaultLeadingTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultMedialTemplate') defaultMedialTemplateRef!: TemplateRef<HTMLElement>;\n  @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>;\n\n  ngAfterViewInit(): void {\n    setTimeout(this.configureTemplatesInitialState.bind(this))\n  }\n\n  private configureTemplatesInitialState(): void {\n    if (!this.leadingTemplate) {\n      this.leadingTemplate = this.defaultLeadingTemplateRef;\n    }\n    if (!this.medialTemplate) {\n      this.medialTemplate = this.defaultMedialTemplateRef;\n    }\n    if (!this.trailingTemplate) {\n      this.trailingTemplate = this.defaultTrailingTemplateRef;\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Input, AfterViewInit, TemplateRef, ViewChild } from '@angular/core';\nimport { defaultBrandingVectors } from '../branding/constants';\n\n@Component({\n  selector: 'eshop-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements AfterViewInit {\n  /** \n  * @internal \n  */\n  @Input() brandingVectors = defaultBrandingVectors\n  /** \n  * @internal \n  */\n  @Input() leadingTemplate!: TemplateRef<any>;\n  /** \n  * @internal \n  */  \n  @Input() medialTemplate!: TemplateRef<any>;\n  /** \n  * @internal \n  */\n  @Input() trailingTemplate!: TemplateRef<any>;\n\n  /** \n  * @internal \n  */\n  @ViewChild('defaultLeadingTemplate') defaultLeadingTemplateRef!: TemplateRef<HTMLElement>;\n  /** \n  * @internal \n  */  \n  @ViewChild('defaultMedialTemplate') defaultMedialTemplateRef!: TemplateRef<HTMLElement>;\n  /** \n  * @internal \n  */\n  @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>;\n\n  /** \n  * @internal \n  */  \n  ngAfterViewInit(): void {\n    setTimeout(this.configureTemplatesInitialState.bind(this))\n  }\n\n  private configureTemplatesInitialState(): void {\n    if (!this.leadingTemplate) {\n      this.leadingTemplate = this.defaultLeadingTemplateRef;\n    }\n    if (!this.medialTemplate) {\n      this.medialTemplate = this.defaultMedialTemplateRef;\n    }\n    if (!this.trailingTemplate) {\n      this.trailingTemplate = this.defaultTrailingTemplateRef;\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -880,54 +744,7 @@
                     ]
                 }
             ],
-            "methodsClass": [
-                {
-                    "name": "preprocessItem",
-                    "args": [
-                        {
-                            "name": "_item",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        },
-                        {
-                            "name": "index",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 31,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        121
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "_item",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "index",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1115,7 +932,7 @@
         },
         {
             "name": "ProfileComponent",
-            "id": "component-ProfileComponent-0cdd6818830d89f43b99e5920664658238b75e4107608ff88846c2ebdcd6f1367a1ef333f82398efb015b3d81837a3a804b9f630c12720aecb98a1256b3931d4",
+            "id": "component-ProfileComponent-176721e8fe72bd74928575c37fed5314ad39b7f7dd11e219c8145904a72826ba7a5a06edc7f98d0e29da4f585651a5361acdcd3647782da3636be16ecb6e9fdd",
             "file": "projects/design-system/src/lib/components/profile/profile.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -1143,30 +960,8 @@
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "copy",
-                    "defaultValue": "{ header: DEFAULT_PROFILE_HEADER }",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "optional": false,
-                    "description": "",
-                    "line": 26
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "onClickProfileIcon",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 30,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "propertiesClass": [],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1174,7 +969,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core'\nimport { ChangeDetectionStrategy } from '@angular/core'\n\nimport { ProfileService } from './profile.service'\nimport { DEFAULT_PROFILE_HEADER } from './copy'\n\n\n@Component({\n  selector: 'eshop-profile',\n  templateUrl: './profile.component.html',\n  styleUrls: ['./profile.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ProfileComponent {\n  @Input() isShowingIconView?: boolean\n\n  get isShowingPageView() {\n    console.log('isShowingIconView was', this.isShowingIconView )\n    return !this.isShowingIconView;\n  }\n\n  get profileIcon$ () {\n    return this.profileService.profileIcon$\n  }\n\n  copy = { header: DEFAULT_PROFILE_HEADER }\n\n  constructor(private profileService: ProfileService) { }\n\n  onClickProfileIcon() {\n    this.profileService.navigateToProfile.next(null)\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core'\nimport { ChangeDetectionStrategy } from '@angular/core'\n\nimport { ProfileService } from './profile.service'\nimport { DEFAULT_PROFILE_HEADER } from './copy'\n\n\n@Component({\n  selector: 'eshop-profile',\n  templateUrl: './profile.component.html',\n  styleUrls: ['./profile.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ProfileComponent {\n  @Input() isShowingIconView?: boolean\n\n  get isShowingPageView() {\n    return !this.isShowingIconView;\n  }\n\n  get profileIcon$ () {\n    return this.profileService.profileIcon$\n  }\n\n  /** \n  * @internal \n  */\n  readonly copy = { header: DEFAULT_PROFILE_HEADER }\n\n  constructor(private profileService: ProfileService) {  }\n\n  /** \n  * @internal \n  */\n  onClickProfileIcon() {\n    this.profileService.navigateToProfile.next(null)\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1196,7 +991,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 26,
+                "line": 28,
                 "jsdoctags": [
                     {
                         "name": "profileService",
@@ -1225,11 +1020,11 @@
                         "name": "profileIcon$",
                         "type": "",
                         "returnType": "",
-                        "line": 22
+                        "line": 21
                     }
                 }
             },
-            "templateData": "<div class=eshop-profile>\n  <div class=icon-view *ngIf=\"isShowingIconView\">\n    <ng-container *ngTemplateOutlet=\"iconView\"></ng-container>\n  </div>\n  <div class=page-view *ngIf=\"isShowingPageView\">\n    <ng-container *ngTemplateOutlet=\"pageView\"></ng-container>\n  </div>\n</div>\n\n<ng-template #iconView>\n  <a class=\"profile-icon transparent\" href=\"void(0)\" (click)=\"onClickProfileIcon()\" *ngIf=\"profileIcon$ | async as profileIcon\">\n    <img class=\"link-image\" [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n  </a>\n</ng-template>\n\n<ng-template #pageView>\n  <section class=profile-page *ngIf=\"profileIcon$ | async as profileIcon\">\n    <header>{{ copy.header }}</header>\n    <div class=profile-details>\n      <span>PROFILE GOES HERE</span>\n      <img [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n    </div>\n  </section>\n</ng-template>\n"
+            "templateData": "<div class=eshop-profile>\n  <div class=icon-view *ngIf=\"isShowingIconView\">\n    <ng-container *ngTemplateOutlet=\"iconView\"></ng-container>\n  </div>\n  <div class=page-view *ngIf=\"isShowingPageView\">\n    <ng-container *ngTemplateOutlet=\"pageView\"></ng-container>\n  </div>\n</div>\n\n<ng-template #iconView>\n  <a class=\"profile-icon transparent\" href=\"javascript:void(0)\" (click)=\"onClickProfileIcon()\" *ngIf=\"profileIcon$ | async as profileIcon\">\n    <img class=\"link-image\" [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n  </a>\n</ng-template>\n\n<ng-template #pageView>\n  <section class=profile-page *ngIf=\"profileIcon$ | async as profileIcon\">\n    <header>{{ copy.header }}</header>\n    <div class=profile-details>\n      <img [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n    </div>\n  </section>\n</ng-template>\n"
         }
     ],
     "modules": [
@@ -1323,13 +1118,71 @@
         },
         {
             "name": "DesignSystemModule",
-            "id": "module-DesignSystemModule-4dd7886c05aa202440f48e6fee66a8ee90e5864e968300d3c14f8fa796109dd57861088a4d0204525d051c630f593f97223a1e75b465997c1d27f6ac016c1939",
+            "id": "module-DesignSystemModule-dd06aa51caeb9824d2d4592e4ecefd166c74af159a74002ad8f2c7d1ecddb5578f01969aa60de7f9d5f71a3fc8242dd830ac1248003327858be34d52f18fcf32",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/design-system/src/lib/design-system.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\"\n\nimport { HeaderModule } from \"./components/header/header.module\"\nimport { FooterComponent } from './components/footer/footer.component'\nimport { ProfileModule } from \"./components/profile/profile.module\"\nimport { MainMenuModule } from \"./components/main-menu/main-menu.module\"\nimport { PageDetailModule } from \"./components/page-detail/page-detail.module\"\nimport { BrandingModule } from \"./components/branding/branding.module\"\nimport { AccordionModule } from \"./components/accordion/accordion.module\"\n\n@NgModule({\n  declarations: [FooterComponent],\n  exports: [FooterComponent],\n  imports: [\n    HeaderModule, ProfileModule, MainMenuModule, \n    PageDetailModule, BrandingModule, AccordionModule\n  ],\n})\nexport class DesignSystemModule {}\n",
+            "sourceCode": "import { NgModule } from \"@angular/core\"\n\nimport { HeaderModule } from \"./components/header/header.module\"\nimport { ProfileModule } from \"./components/profile/profile.module\"\nimport { MainMenuModule } from \"./components/main-menu/main-menu.module\"\nimport { PageDetailModule } from \"./components/page-detail/page-detail.module\"\nimport { BrandingModule } from \"./components/branding/branding.module\"\nimport { AccordionModule } from \"./components/accordion/accordion.module\"\nimport { FooterModule } from \"./components/footer/footer.module\"\n\n@NgModule({\n  imports: [\n    HeaderModule, ProfileModule, MainMenuModule,\n    PageDetailModule, BrandingModule, AccordionModule,\n    FooterModule\n  ],\n})\nexport class DesignSystemModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AccordionModule"
+                        },
+                        {
+                            "name": "BrandingModule"
+                        },
+                        {
+                            "name": "FooterModule"
+                        },
+                        {
+                            "name": "HeaderModule"
+                        },
+                        {
+                            "name": "MainMenuModule"
+                        },
+                        {
+                            "name": "PageDetailModule"
+                        },
+                        {
+                            "name": "ProfileModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "FooterModule",
+            "id": "module-FooterModule-d89629c130b8ef7001e05825dcabd3cfbef5c49f9cba740c8103e8c5566d12a7add8c1d0a9a4ca931191f894e48e258f8f621be8bddcec1f9d6726a1593402d6",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/design-system/src/lib/components/footer/footer.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FooterComponent } from './footer.component';\n\n\n\n@NgModule({\n  declarations: [FooterComponent],\n  exports: [FooterComponent],\n  imports: [\n    CommonModule\n  ]\n})\nexport class FooterModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -1345,26 +1198,7 @@
                 },
                 {
                     "type": "imports",
-                    "elements": [
-                        {
-                            "name": "AccordionModule"
-                        },
-                        {
-                            "name": "BrandingModule"
-                        },
-                        {
-                            "name": "HeaderModule"
-                        },
-                        {
-                            "name": "MainMenuModule"
-                        },
-                        {
-                            "name": "PageDetailModule"
-                        },
-                        {
-                            "name": "ProfileModule"
-                        }
-                    ]
+                    "elements": []
                 },
                 {
                     "type": "exports",
@@ -1651,16 +1485,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Profile.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ProfileComponent>",
-                "defaultValue": "function({isShowingIconView}) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule],\n    },\n    template: `<eshop-profile [isShowingIconView]=\"!!isShowingIconView\"></eshop-profile>`,\n    props: { isShowingIconView }\n  }\n}"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1668,10 +1492,20 @@
                 "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, HeaderModule, MenuLoader],\n    },\n    template: `<div class=with-menu>\n      <menu-loader [items]=\"items\"></menu-loader>\n      <eshop-header></eshop-header>\n    </div>`,\n    props: { ...args }\n  }\n}"
             },
             {
-                "name": "Typical",
+                "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Profile.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ProfileComponent>",
+                "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule],\n    },\n    template: `<eshop-profile [isShowingIconView]=\"isShowingIconView\"></eshop-profile>`,\n    props: { ...args }\n  }\n}"
+            },
+            {
+                "name": "Typical",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1681,7 +1515,7 @@
                 "name": "Typical",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Header.stories.ts",
+                "file": "stories/Profile.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1848,7 +1682,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<ProfileComponent>",
-                    "defaultValue": "function({isShowingIconView}) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule],\n    },\n    template: `<eshop-profile [isShowingIconView]=\"!!isShowingIconView\"></eshop-profile>`,\n    props: { isShowingIconView }\n  }\n}"
+                    "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule],\n    },\n    template: `<eshop-profile [isShowingIconView]=\"isShowingIconView\"></eshop-profile>`,\n    props: { ...args }\n  }\n}"
                 },
                 {
                     "name": "Typical",
@@ -1988,7 +1822,7 @@
                 "linktype": "component",
                 "name": "BrandingComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -2025,7 +1859,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -2129,7 +1963,7 @@
                 "linktype": "component",
                 "name": "ProfileComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -2207,7 +2041,7 @@
                 "linktype": "component",
                 "name": "MenuLoader",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/5",
                 "status": "low"
             }
         ]

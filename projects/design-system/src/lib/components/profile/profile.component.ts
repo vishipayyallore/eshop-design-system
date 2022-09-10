@@ -9,7 +9,7 @@ import { DEFAULT_PROFILE_HEADER } from './copy'
   selector: 'eshop-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileComponent {
   @Input() isShowingIconView?: boolean
@@ -22,12 +22,16 @@ export class ProfileComponent {
     return this.profileService.profileIcon$
   }
 
-  copy = { header: DEFAULT_PROFILE_HEADER }
+  /** 
+  * @internal 
+  */
+  readonly copy = { header: DEFAULT_PROFILE_HEADER }
 
-  constructor(private profileService: ProfileService) { 
-    (window as any).component = this
-  }
+  constructor(private profileService: ProfileService) {  }
 
+  /** 
+  * @internal 
+  */
   onClickProfileIcon() {
     this.profileService.navigateToProfile.next(null)
   }

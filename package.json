@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "prestorybook": "npm run docs:json",
+    "prestorybook": "npm run docs:json -- --disableInternal --disablePrivate --disableProtected",
     "storybook": "start-storybook -p 6006",
     "prebuild-storybook": "npm run docs:json",
     "build-storybook": "build-storybook"
