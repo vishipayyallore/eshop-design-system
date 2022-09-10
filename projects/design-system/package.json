@@ -1,12 +1,9 @@
 {
-  "name": "design-system",
+  "name": "@vishipayyallore/design-system",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^14.1.0",
     "@angular/core": "^14.1.0",
     "purecss-sass": "^2.1.0"
-  },
-  "devDependencies": {
-    "tslib": "^2.3.0"
   }
 }
