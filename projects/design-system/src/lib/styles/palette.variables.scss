@@ -1,0 +1,16 @@
+@import "./mixins";
+
+// coolors.co color names
+$purple: #6D0AA4;
+$middle-yellow-red: #F2B16E;
+$light-green: #9DF279; //#35BD45;
+
+$ghost-white: #f5f5ff;
+$xiketic: #001;
+
+$primary-color: $purple !default;
+$secondary-color: $middle-yellow-red !default;
+$accent-color: $light-green !default;
+
+$surface-color: $ghost-white !default;
+$ink-color: $xiketic !default;

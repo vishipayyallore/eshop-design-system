@@ -1,5 +1,5 @@
-<ul class=eshop-accordion *ngFor="let item of items$ | async">
-  <li class=item ngClass="{ expanded: item.isExpanded }">
+<ul class=eshop-accordion>
+  <li class=item ngClass="{ expanded: item.isExpanded }" *ngFor="let item of items$ | async">
     <button class=surface *ngIf="isReactiveSurface" (click)="toggleItem(item)">
       <ng-container *ngTemplateOutlet="itemContent"></ng-container>      
     </button>
