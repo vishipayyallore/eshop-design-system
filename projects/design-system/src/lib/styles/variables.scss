@@ -1,26 +1,54 @@
-@import './typography';
+@import './typography.variables';
+@import './palette.variables';
 
-@mixin variables {
-  --type-xs: $type-xs;
-  --type-sm: $type-sm;
-  --type-md: $type-md;
-  --type-lg: $type-lg;
-  --type-xl: $type-xl;
-  --type-display: $type-display;
-
-  --type-serif: $serif;
-  --type-sans: $sans;
-
-  --line-height: $line-height;
-  --line-height--display: $line-height--display;
-
-  --primary-color: $primary-color;
-  --secondary-color: $secondary-color;
-  --accent-color: $accent-color;
-  --surface-color: $surface-color;
-  --ink-color: $ink-color;
-}
 
 :root {
-  @include variables
+  --type-xs: #{$type-xs};
+  --type-sm: #{$type-sm};
+  --type-md: #{$type-md};
+  --type-lg: #{$type-lg};
+  --type-xl: #{$type-xl};
+  --type-display: #{$type-display};
+
+  --type-serif: #{$serif};
+  --type-sans: #{$sans};
+
+  --line-height: #{$line-height};
+  --line-height--display: #{$line-height--display};
+
+  --sans: #{$sans};
+  --serif: #{$serif};
 }
+
+body {  
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --accent-color: #{$accent-color};
+  --surface-color: #{$surface-color};
+  --ink-color: #{$ink-color};
+  --shadow-color: #{transparentize($ink-color, 0.1)};
+
+  @include light-mode {
+    $surface-color: $ghost-white;
+    $ink-color: $xiketic;
+
+    --primary-color: #{$purple};
+    --secondary-color: #{$middle-yellow-red};
+    --accent-color: #{$light-green};
+    --surface-color: #{$ghost-white};
+    --ink-color: #{$xiketic};    
+    --shadow-color: #{transparentize($xiketic, 0.1)};
+  }
+  @include dark-mode {
+    $surface-color: $xiketic;
+    $ink-color: $ghost-white;
+
+    --primary-color: #{$middle-yellow-red};
+    --secondary-color: #{$purple};
+    --accent-color: #{$light-green};
+    --surface-color: #{$xiketic};
+    --ink-color: #{$ghost-white};  
+    --shadow-color: #{transparentize($ghost-white, 0.1)};
+  }
+}
+

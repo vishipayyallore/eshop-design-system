@@ -18,16 +18,7 @@ export class ProfileComponent {
     return !this.isShowingIconView;
   }
 
-  get profileIcon$ () {
-    return this.profileService.profileIcon$
-  }
-
-  /** 
-  * @internal 
-  */
-  readonly copy = { header: DEFAULT_PROFILE_HEADER }
-
-  constructor(private profileService: ProfileService) {  }
+  constructor(/** @internal */ public profileService: ProfileService) {  }
 
   /** 
   * @internal 

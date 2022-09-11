@@ -1,12 +1,11 @@
-@import "../../styles/mixins";
-@import "../../styles/palette";
+@import "../../styles/index";
 @import "./layout";
 
 header {
   @include media-mobile {
     @include two-up-one-down;
   }
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 
   &.horizontal {
     @include horizontal;
@@ -19,7 +18,10 @@ header > .medial {
   align-items: flex-end;
   padding-bottom: 1pt;
   padding-top: 1pt;
-  color: $accent-color;
+  margin: 0;
+  
+  font-size: $type-md;
+  color: var(--accent-color);
 }
 
 @include media-desktop {

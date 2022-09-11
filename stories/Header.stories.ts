@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
-import type { Story, Meta } from '@storybook/angular';
+import { CommonModule } from '@angular/common'
+import type { Story, Meta } from '@storybook/angular'
 
-import { HeaderModule } from 'projects/design-system/src/lib/components/header/header.module';
-import { HeaderComponent } from 'projects/design-system/src/lib/components/header/header.component';
-import { MenuLoader } from './menu-loader.component';
-import { defaultBrandingVectors } from 'projects/design-system/src/lib/components/branding/constants';
+import { HeaderModule } from 'projects/design-system/src/lib/components/header/header.module'
+import { HeaderComponent } from 'projects/design-system/src/lib/components/header/header.component'
+import { MenuLoader } from './menu-loader.component'
+import { defaultBrandingVectors } from 'projects/design-system/src/lib/components/branding/constants'
 
 
 export default {
@@ -14,7 +14,7 @@ export default {
     // More on Story layout: https://storybook.js.org/docs/angular/configure/story-layout
     layout: 'fullscreen',
   },
-} as Meta;
+} as Meta
 
 const Template: Story<HeaderComponent & MenuLoader> = function(args:any) {
   return {
@@ -29,10 +29,10 @@ const Template: Story<HeaderComponent & MenuLoader> = function(args:any) {
   }
 }
 
-export const Typical = Template.bind({});
+export const Typical = Template.bind({})
 
-export const WithMenu = Template.bind({});
+export const WithMenu = Template.bind({})
 WithMenu.args = {
   items: [1,2],
   brandingVectors: defaultBrandingVectors,
-};
+}

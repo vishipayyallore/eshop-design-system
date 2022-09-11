@@ -8,14 +8,14 @@
 </div>
 
 <ng-template #iconView>
-  <a class="profile-icon transparent" href="javascript:void(0)" (click)="onClickProfileIcon()" *ngIf="profileIcon$ | async as profileIcon">
+  <a class="profile-icon transparent" href="javascript:void(0)" (click)="onClickProfileIcon()" *ngIf="profileService.profileIcon$ | async as profileIcon">
     <img class="link-image" [src]="profileIcon.imgSrc" [alt]="profileIcon.imgAlt">
   </a>
 </ng-template>
 
 <ng-template #pageView>
-  <section class=profile-page *ngIf="profileIcon$ | async as profileIcon">
-    <header>{{ copy.header }}</header>
+  <section class=profile-page *ngIf="profileService.profileIcon$ | async as profileIcon">
+    <header><h1>{{ profileService.copyHeader$ | async }}</h1></header>
     <div class=profile-details>
       <img [src]="profileIcon.imgSrc" [alt]="profileIcon.imgAlt">
     </div>

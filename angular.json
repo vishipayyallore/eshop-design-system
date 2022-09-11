@@ -42,7 +42,9 @@
           "builder": "@storybook/angular:start-storybook",
           "options": {
             "tsConfig": "tsconfig.json",
-            "styles": ["projects/design-system/src/lib/styles/reset.scss"],
+            "styles": [
+              "projects/design-system/src/lib/styles/once.scss"
+            ],
             "scripts": []
           }
         }

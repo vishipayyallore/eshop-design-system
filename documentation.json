@@ -222,9 +222,29 @@
         },
         {
             "name": "ProfileService",
-            "id": "injectable-ProfileService-fdebb854440fe40e0d1ff8a43aeaef40b5c24e5e90b44cfa6e8669676d40b0cec40684d361bea0a2427c787c9ce19b9ff28df86e183d9a927dbcfcb34eb839bb",
+            "id": "injectable-ProfileService-3fd1ca0eef6ada3df4108a7deeb1cbcf3adcaf2e27f1c5e5c68b371517ad7931eff852ffe72a05f6048a48cc500e203fae55f46ee013cfd114b3ab3afdd8ad16",
             "file": "projects/design-system/src/lib/components/profile/profile.service.ts",
             "properties": [
+                {
+                    "name": "copyHeader",
+                    "defaultValue": "new BehaviorSubject<string>(DEFAULT_PROFILE_HEADER)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "copyHeader$",
+                    "defaultValue": "this.copyHeader.asObservable()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
                 {
                     "name": "navigateToProfile",
                     "defaultValue": "new Subject<null>()",
@@ -233,16 +253,17 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 19
                 },
                 {
                     "name": "navigateToProfile$",
+                    "defaultValue": "this.navigateToProfile.asObservable()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Observable<>",
+                    "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 20
                 },
                 {
                     "name": "profileIcon",
@@ -252,16 +273,17 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 13
                 },
                 {
                     "name": "profileIcon$",
+                    "defaultValue": "this.profileIcon.asObservable()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Observable<ProfileIcon>",
+                    "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 14
                 }
             ],
             "methods": [],
@@ -269,15 +291,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core'\nimport { BehaviorSubject, Subject, Observable } from 'rxjs'\n\nimport { DEFAULT_PROFILE } from './constants'\nimport type { ProfileIcon } from './profile-icon.interface'\n\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class ProfileService {\n  profileIcon = new BehaviorSubject<ProfileIcon>(DEFAULT_PROFILE)\n  profileIcon$: Observable<ProfileIcon>\n\n  navigateToProfile = new Subject<null>()\n  navigateToProfile$: Observable<null>\n\n  constructor() {\n    this.profileIcon$ = this.profileIcon.asObservable()\n    this.navigateToProfile$ = this.navigateToProfile.asObservable()\n  }\n\n}\n",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 16
-            },
+            "sourceCode": "import { Injectable } from '@angular/core'\nimport { BehaviorSubject, Subject, Observable } from 'rxjs'\n\nimport { DEFAULT_PROFILE } from './constants'\nimport { DEFAULT_PROFILE_HEADER } from './copy'\nimport type { ProfileIcon } from './profile-icon.interface'\n\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class ProfileService {\n  profileIcon = new BehaviorSubject<ProfileIcon>(DEFAULT_PROFILE)\n  profileIcon$ = this.profileIcon.asObservable()\n\n  copyHeader = new BehaviorSubject<string>(DEFAULT_PROFILE_HEADER)\n  copyHeader$ = this.copyHeader.asObservable()\n\n  navigateToProfile = new Subject<null>()\n  navigateToProfile$ = this.navigateToProfile.asObservable()\n\n}\n",
             "type": "injectable"
         }
     ],
@@ -367,7 +381,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".eshop-accordion {\n  > .item > button.surface {\n    padding: 0;\n    border: none;\n    background: transparent;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    width: 100%;\n    height: 100%;\n    transition: all 0.2s ease-in-out;\n    &:hover {\n      background-color: rgba(255, 255, 255, 0.1);\n    }\n  }\n}",
+                    "data": "@import \"../../styles/index.scss\";\n\n.eshop-accordion {\n  > .item > button.surface {\n    padding: 0;\n    border: none;\n    background: transparent;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    width: 100%;\n    height: 100%;\n    transition: all 0.2s ease-in-out;\n    &:hover {\n      background-color: transparentize($ink-color, 0.1);\n    }\n  }\n}",
                     "styleUrl": "./accordion.component.scss"
                 }
             ],
@@ -581,7 +595,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../styles/mixins\";\n@import \"../../styles/palette\";\n@import \"./layout\";\n\nheader {\n  @include media-mobile {\n    @include two-up-one-down;\n  }\n  background-color: $primary-color;\n\n  &.horizontal {\n    @include horizontal;\n  } \n}\n\nheader > .medial {\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n  padding-bottom: 1pt;\n  padding-top: 1pt;\n  color: $accent-color;\n}\n\n@include media-desktop {\n  header {\n    @include horizontal;\n  }\n  header > .medial {\n    display: flex;\n    align-items: center;\n    flex: 1;\n    padding-left: 1em;\n  }\n}\n",
+                    "data": "@import \"../../styles/index\";\n@import \"./layout\";\n\nheader {\n  @include media-mobile {\n    @include two-up-one-down;\n  }\n  background-color: var(--primary-color);\n\n  &.horizontal {\n    @include horizontal;\n  } \n}\n\nheader > .medial {\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n  padding-bottom: 1pt;\n  padding-top: 1pt;\n  margin: 0;\n  \n  font-size: $type-md;\n  color: var(--accent-color);\n}\n\n@include media-desktop {\n  header {\n    @include horizontal;\n  }\n  header > .medial {\n    display: flex;\n    align-items: center;\n    flex: 1;\n    padding-left: 1em;\n  }\n}\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -589,7 +603,7 @@
             "implements": [
                 "AfterViewInit"
             ],
-            "templateData": "<header class=eshop-header>\n  <ng-container *ngTemplateOutlet=\"leadingTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"medialTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"trailingTemplate\"></ng-container>\n</header>\n\n<ng-template #defaultLeadingTemplate>\n  <div class=leading>\n    <eshop-branding [vectors]=\"brandingVectors\"></eshop-branding>\n  </div>\n</ng-template>\n\n<ng-template #defaultMedialTemplate>\n  <div class=medial>\n    <eshop-page-detail detail=title></eshop-page-detail>\n  </div>\n</ng-template>\n\n<ng-template #defaultTrailingTemplate>\n  <div class=trailing>\n    <eshop-main-menu></eshop-main-menu>\n  </div>\n</ng-template>"
+            "templateData": "<header class=eshop-header>\n  <ng-container *ngTemplateOutlet=\"leadingTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"medialTemplate\"></ng-container>\n  <ng-container *ngTemplateOutlet=\"trailingTemplate\"></ng-container>\n</header>\n\n<ng-template #defaultLeadingTemplate>\n  <div class=leading>\n    <eshop-branding [vectors]=\"brandingVectors\"></eshop-branding>\n  </div>\n</ng-template>\n\n<ng-template #defaultMedialTemplate>\n  <h1 class=\"medial\">\n    <eshop-page-detail detail=title></eshop-page-detail>\n  </h1>\n</ng-template>\n\n<ng-template #defaultTrailingTemplate>\n  <div class=trailing>\n    <eshop-main-menu></eshop-main-menu>\n  </div>\n</ng-template>"
         },
         {
             "name": "MainMenuComponent",
@@ -932,7 +946,7 @@
         },
         {
             "name": "ProfileComponent",
-            "id": "component-ProfileComponent-176721e8fe72bd74928575c37fed5314ad39b7f7dd11e219c8145904a72826ba7a5a06edc7f98d0e29da4f585651a5361acdcd3647782da3636be16ecb6e9fdd",
+            "id": "component-ProfileComponent-a58237fc2f1aaa3c5e12bfdea37ac11dcfe713251a798ae1555185173047e5d97528a12d81548a53d4d144051ba32b105dac457cc9d5eb379b272d6c518ee8e0",
             "file": "projects/design-system/src/lib/components/profile/profile.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -969,7 +983,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core'\nimport { ChangeDetectionStrategy } from '@angular/core'\n\nimport { ProfileService } from './profile.service'\nimport { DEFAULT_PROFILE_HEADER } from './copy'\n\n\n@Component({\n  selector: 'eshop-profile',\n  templateUrl: './profile.component.html',\n  styleUrls: ['./profile.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ProfileComponent {\n  @Input() isShowingIconView?: boolean\n\n  get isShowingPageView() {\n    return !this.isShowingIconView;\n  }\n\n  get profileIcon$ () {\n    return this.profileService.profileIcon$\n  }\n\n  /** \n  * @internal \n  */\n  readonly copy = { header: DEFAULT_PROFILE_HEADER }\n\n  constructor(private profileService: ProfileService) {  }\n\n  /** \n  * @internal \n  */\n  onClickProfileIcon() {\n    this.profileService.navigateToProfile.next(null)\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core'\nimport { ChangeDetectionStrategy } from '@angular/core'\n\nimport { ProfileService } from './profile.service'\nimport { DEFAULT_PROFILE_HEADER } from './copy'\n\n\n@Component({\n  selector: 'eshop-profile',\n  templateUrl: './profile.component.html',\n  styleUrls: ['./profile.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ProfileComponent {\n  @Input() isShowingIconView?: boolean\n\n  get isShowingPageView() {\n    return !this.isShowingIconView;\n  }\n\n  constructor(/** @internal */ public profileService: ProfileService) {  }\n\n  /** \n  * @internal \n  */\n  onClickProfileIcon() {\n    this.profileService.navigateToProfile.next(null)\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -991,7 +1005,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 28,
+                "line": 19,
                 "jsdoctags": [
                     {
                         "name": "profileService",
@@ -1013,18 +1027,116 @@
                         "returnType": "",
                         "line": 17
                     }
-                },
-                "profileIcon$": {
-                    "name": "profileIcon$",
-                    "getSignature": {
-                        "name": "profileIcon$",
-                        "type": "",
-                        "returnType": "",
-                        "line": 21
-                    }
                 }
             },
-            "templateData": "<div class=eshop-profile>\n  <div class=icon-view *ngIf=\"isShowingIconView\">\n    <ng-container *ngTemplateOutlet=\"iconView\"></ng-container>\n  </div>\n  <div class=page-view *ngIf=\"isShowingPageView\">\n    <ng-container *ngTemplateOutlet=\"pageView\"></ng-container>\n  </div>\n</div>\n\n<ng-template #iconView>\n  <a class=\"profile-icon transparent\" href=\"javascript:void(0)\" (click)=\"onClickProfileIcon()\" *ngIf=\"profileIcon$ | async as profileIcon\">\n    <img class=\"link-image\" [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n  </a>\n</ng-template>\n\n<ng-template #pageView>\n  <section class=profile-page *ngIf=\"profileIcon$ | async as profileIcon\">\n    <header>{{ copy.header }}</header>\n    <div class=profile-details>\n      <img [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n    </div>\n  </section>\n</ng-template>\n"
+            "templateData": "<div class=eshop-profile>\n  <div class=icon-view *ngIf=\"isShowingIconView\">\n    <ng-container *ngTemplateOutlet=\"iconView\"></ng-container>\n  </div>\n  <div class=page-view *ngIf=\"isShowingPageView\">\n    <ng-container *ngTemplateOutlet=\"pageView\"></ng-container>\n  </div>\n</div>\n\n<ng-template #iconView>\n  <a class=\"profile-icon transparent\" href=\"javascript:void(0)\" (click)=\"onClickProfileIcon()\" *ngIf=\"profileService.profileIcon$ | async as profileIcon\">\n    <img class=\"link-image\" [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n  </a>\n</ng-template>\n\n<ng-template #pageView>\n  <section class=profile-page *ngIf=\"profileService.profileIcon$ | async as profileIcon\">\n    <header><h1>{{ profileService.copyHeader$ | async }}</h1></header>\n    <div class=profile-details>\n      <img [src]=\"profileIcon.imgSrc\" [alt]=\"profileIcon.imgAlt\">\n    </div>\n  </section>\n</ng-template>\n"
+        },
+        {
+            "name": "ProfileLoader",
+            "id": "component-ProfileLoader-e75d1280404db4dbe1c44372a3b69b03e276a6d515aa5d722db189a7c578324cccf8f6eb3dec96d143abffc1e066e5eb48784ad3615ad4ed8b438690d0a5fed6",
+            "file": "stories/profile-loader.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "profile-loader",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<span class=\"item content\" *ngIf=debug>[PROFILE LOADER]</span>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "copyHeader",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "debug",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from \"@angular/common\"\nimport { Component, Input } from \"@angular/core\"\n\nimport { ProfileService } from \"projects/design-system/src/lib/components/profile/profile.service\"\n\n\n@Component({\n  standalone: true,\n  imports: [ CommonModule ],\n  template: `<span class=\"item content\" *ngIf=debug>[PROFILE LOADER]</span>`,\n  selector: 'profile-loader'\n})\nexport class ProfileLoader { \n  @Input() debug = false\n  @Input() set copyHeader (header: string) {\n    if(header) {\n      this.profileService.copyHeader.next(header)\n    }\n  }\n  constructor(private profileService: ProfileService) {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "profileService",
+                        "type": "ProfileService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 19,
+                "jsdoctags": [
+                    {
+                        "name": "profileService",
+                        "type": "ProfileService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "accessors": {
+                "copyHeader": {
+                    "name": "copyHeader",
+                    "setSignature": {
+                        "name": "copyHeader",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "header",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 15,
+                        "jsdoctags": [
+                            {
+                                "name": "header",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
         }
     ],
     "modules": [
@@ -1498,8 +1610,8 @@
                 "file": "stories/Profile.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ProfileComponent>",
-                "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule],\n    },\n    template: `<eshop-profile [isShowingIconView]=\"isShowingIconView\"></eshop-profile>`,\n    props: { ...args }\n  }\n}"
+                "type": "Story<>",
+                "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule, ProfileLoader],\n    },\n    template: `<div class=with-profile>\n    <profile-loader [copyHeader]=\"copyHeader\"></profile-loader>\n    <eshop-profile [isShowingIconView]=\"isShowingIconView\"></eshop-profile>\n  </div>`,\n    props: { ...args }\n  }\n}"
             },
             {
                 "name": "Typical",
@@ -1681,8 +1793,8 @@
                     "file": "stories/Profile.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<ProfileComponent>",
-                    "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule],\n    },\n    template: `<eshop-profile [isShowingIconView]=\"isShowingIconView\"></eshop-profile>`,\n    props: { ...args }\n  }\n}"
+                    "type": "Story<>",
+                    "defaultValue": "function(args:any) {\n  return {\n    moduleMetadata: {\n      imports: [CommonModule, ProfileModule, ProfileLoader],\n    },\n    template: `<div class=with-profile>\n    <profile-loader [copyHeader]=\"copyHeader\"></profile-loader>\n    <eshop-profile [isShowingIconView]=\"isShowingIconView\"></eshop-profile>\n  </div>`,\n    props: { ...args }\n  }\n}"
                 },
                 {
                     "name": "Typical",
@@ -1972,7 +2084,7 @@
                 "linktype": "injectable",
                 "name": "ProfileService",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -2042,6 +2154,15 @@
                 "name": "MenuLoader",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/profile-loader.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ProfileLoader",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             }
         ]

@@ -32,3 +32,25 @@
     @content 
   }
 };
+
+@mixin light-mode() {
+  @media (prefers-color-scheme: light) {
+    @at-root #{selector-nest(':root:not([data-theme=light]):not([data-theme=dark])', &)} {
+      @content;
+    }
+  }
+  @at-root #{selector-nest(':root[data-theme=light]', &)} {
+    @content;
+  }
+};
+
+@mixin dark-mode() {
+  @media (prefers-color-scheme: dark) {
+    @at-root #{selector-nest(':root:not([data-theme=light]):not([data-theme=dark])', &)} {
+      @content;
+    }
+  }
+  @at-root #{selector-nest(':root[data-theme=dark]', &)} {
+    @content;
+  }
+};
