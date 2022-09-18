@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PageDetailService } from './page-detail.service';
+import { Component, Input, OnInit } from '@angular/core'
+
+import { PageDetailService } from './page-detail.service'
+
 
 @Component({
   selector: 'eshop-page-detail',

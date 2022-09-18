@@ -1,5 +1,7 @@
-import { Component, Input, AfterViewInit, TemplateRef, ViewChild } from '@angular/core';
-import { defaultBrandingVectors } from '../branding/constants';
+import { Component, Input, AfterViewInit, TemplateRef, ViewChild } from '@angular/core'
+
+import { defaultBrandingVectors } from '../branding/constants'
+
 
 @Component({
   selector: 'eshop-header',
@@ -14,28 +16,28 @@ export class HeaderComponent implements AfterViewInit {
   /** 
   * @internal 
   */
-  @Input() leadingTemplate!: TemplateRef<any>;
+  @Input() leadingTemplate!: TemplateRef<any>
   /** 
   * @internal 
   */  
-  @Input() medialTemplate!: TemplateRef<any>;
+  @Input() medialTemplate!: TemplateRef<any>
   /** 
   * @internal 
   */
-  @Input() trailingTemplate!: TemplateRef<any>;
+  @Input() trailingTemplate!: TemplateRef<any>
 
   /** 
   * @internal 
   */
-  @ViewChild('defaultLeadingTemplate') defaultLeadingTemplateRef!: TemplateRef<HTMLElement>;
+  @ViewChild('defaultLeadingTemplate') defaultLeadingTemplateRef!: TemplateRef<HTMLElement>
   /** 
   * @internal 
   */  
-  @ViewChild('defaultMedialTemplate') defaultMedialTemplateRef!: TemplateRef<HTMLElement>;
+  @ViewChild('defaultMedialTemplate') defaultMedialTemplateRef!: TemplateRef<HTMLElement>
   /** 
   * @internal 
   */
-  @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>;
+  @ViewChild('defaultTrailingTemplate') defaultTrailingTemplateRef!: TemplateRef<HTMLElement>
 
   /** 
   * @internal 
@@ -46,13 +48,13 @@ export class HeaderComponent implements AfterViewInit {
 
   private configureTemplatesInitialState(): void {
     if (!this.leadingTemplate) {
-      this.leadingTemplate = this.defaultLeadingTemplateRef;
+      this.leadingTemplate = this.defaultLeadingTemplateRef
     }
     if (!this.medialTemplate) {
-      this.medialTemplate = this.defaultMedialTemplateRef;
+      this.medialTemplate = this.defaultMedialTemplateRef
     }
     if (!this.trailingTemplate) {
-      this.trailingTemplate = this.defaultTrailingTemplateRef;
+      this.trailingTemplate = this.defaultTrailingTemplateRef
     }
   }
 }

@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core'
 import { ChangeDetectionStrategy } from '@angular/core'
 
 import { ProfileService } from './profile.service'
-import { DEFAULT_PROFILE_HEADER } from './copy'
 
 
 @Component({
@@ -15,7 +14,7 @@ export class ProfileComponent {
   @Input() isShowingIconView?: boolean
 
   get isShowingPageView() {
-    return !this.isShowingIconView;
+    return !this.isShowingIconView
   }
 
   constructor(/** @internal */ public profileService: ProfileService) {  }
