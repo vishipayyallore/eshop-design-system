@@ -1,4 +1,4 @@
-import { BrandingVectors } from "./branding-vectors.enum";
+import { BrandingVectors } from "./branding-vectors.enum"
 
 
 export interface BrandingType {

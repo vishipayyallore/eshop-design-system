@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 import { AccordionItem } from './accordion-item.interface'
 

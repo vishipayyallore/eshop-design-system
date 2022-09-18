@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
-import { DEFAULT_COPY, ESHOP_SLOGAN } from './constants';
+import { Injectable } from '@angular/core'
+
+import { DEFAULT_COPY, ESHOP_SLOGAN } from './constants'
+
 
 @Injectable({
   providedIn: 'root'

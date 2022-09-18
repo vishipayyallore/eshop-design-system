@@ -11,7 +11,7 @@ import { MainMenuService } from './main-menu.service'
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
-  @Input() isExpandable = false;
+  @Input() isExpandable = false
   
   items$!: Observable<AccordionItem[]>
 

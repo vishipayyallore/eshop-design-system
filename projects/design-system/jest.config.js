@@ -10,4 +10,4 @@ module.exports = {
   //     "^~config/(.*)$": '<rootDir>/src/config/$1',
   //     "^~common/(.*)$": '<rootDir>/src/app/common/$1'
   // }
-};
+}

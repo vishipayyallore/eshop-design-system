@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AccordionComponent } from './accordion.component';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
+import { AccordionComponent } from './accordion.component'
+export * from './accordion.component'
 
 
 @NgModule({
