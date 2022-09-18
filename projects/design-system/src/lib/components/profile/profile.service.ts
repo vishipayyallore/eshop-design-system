@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { BehaviorSubject, Subject, Observable } from 'rxjs'
+import { BehaviorSubject, Subject, Observable, ReplaySubject } from 'rxjs'
 
 import { DEFAULT_PROFILE } from './constants'
 import { DEFAULT_PROFILE_HEADER } from './copy'
@@ -10,6 +10,9 @@ import type { ProfileIcon } from './profile-icon.interface'
   providedIn: 'root'
 })
 export class ProfileService {
+  userData = new ReplaySubject<any>(1)
+  userData$ = this.userData.asObservable()
+  
   profileIcon = new BehaviorSubject<ProfileIcon>(DEFAULT_PROFILE)
   profileIcon$ = this.profileIcon.asObservable()
 
