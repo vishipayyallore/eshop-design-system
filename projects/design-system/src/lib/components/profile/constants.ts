@@ -1,4 +1,4 @@
-import { ProfileIcon } from './profile-icon.interface'
+import type { ProfileIcon } from './profile-icon.interface'
 
 export const ANONYMOUS_PROFILE: ProfileIcon = {
   imgSrc: "https://cataas.com/cat",
